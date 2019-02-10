@@ -1,0 +1,8 @@
+IN a
+IN b
+ADD b a
+MLT a b
+OUT a
+IN a
+OUT a
+OUT b

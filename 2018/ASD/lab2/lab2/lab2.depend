@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1538933529 source:e:\ќблако\учеба\ји—ƒ\lab2\lab2\form_7.h
+
+1538520676 source:e:\ќблако\учеба\ји—ƒ\lab2\lab2\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1539119929 source:e:\ќблако\учеба\ји—ƒ\lab2\lab2\form_7.c
+	"form_7.h"
+	<stdlib.h>
+	<stdio.h>
+
+1538933529 e:\ќблако\учеба\ји—ƒ\lab2\lab2\form_7.h
+
+1538933529 source:c:\users\user\documents\github\asd\lab2\lab2\form_7.h
+
+1539168922 source:c:\users\user\documents\github\asd\lab2\lab2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"form_7.h"
+
+1538933529 c:\users\user\documents\github\asd\lab2\lab2\form_7.h
+
+1539170250 source:c:\users\user\documents\github\asd\lab2\lab2\form_7.c
+	"form_7.h"
+	<stdlib.h>
+	<stdio.h>
+
