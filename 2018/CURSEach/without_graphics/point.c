@@ -21,6 +21,11 @@ double Line_lenght(Line a){
     return sqrt((a.b.x-a.a.x)*(a.b.x-a.a.x)+(a.b.y-a.a.y)*(a.b.y-a.a.y));
 }
 
+int point_to_Line_lenght(Line l, point p){
+    return (abs(((l.b.y-l.a.y)*p.x)-((l.b.x-l.a.x)*p.y)+l.b.x*l.a.y-l.b.y*l.a.x)/sqrt((l.b.y-l.a.y)*(l.b.y-l.a.y)+(l.b.x-l.a.x)*(l.b.x-l.a.x))
+}
+
+
 int Line_intersect(Line a,Line b){
   return ((point_rotate(a.a,a.b,b.a)*point_rotate(a.a,a.b,b.b))<=0)&&((point_rotate(b.a,b.b,a.a)*point_rotate(b.a,b.b,a.b))<0);
 }
@@ -71,6 +76,24 @@ void print_Line(Line a){
     print_point(a.b);
     printf("\n");
 
+}
+
+double Line_point_sub(Line l,point p){
+    Line temp_Line1,temp_Line2;
+    temp_Line1.a=l.a;
+    temp_Line1.b=p;
+    temp_Line2.a=p;
+    temp_Line2.b=l.b;
+    return (Line_lenght(temp_Line1)+Line_lenght(temp_Line1)-Line_lenght(l))
+}
+
+void Line_arr_delete(Line* arr,int *size,int pos){
+    switch (pos) {
+        case *size-1: *size--;
+        break;
+        default: for(int i=pos;i++;i<*size)
+        arr[pos]=arr[pos+1];
+    }
 }
 
 void Line_write_arr(Line* arr,int size){

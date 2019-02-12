@@ -28,4 +28,6 @@ void point_write_arr(point *arr,int size);
 void print_Line(Line a);
 void print_point(point a);
 void Line_write_arr(Line* arr,int size);
+int point_to_Line_lenght(Line a, point b);
+void Line_arr_delete(Line* arr,int size);
 #endif
