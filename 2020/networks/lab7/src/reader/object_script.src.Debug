@@ -1,0 +1,15 @@
+debug/mail_client.o
+debug/main.o
+debug/emailaddress.o
+debug/mimeattachment.o
+debug/mimecontentformatter.o
+debug/mimefile.o
+debug/mimehtml.o
+debug/mimeinlinefile.o
+debug/mimemessage.o
+debug/mimemultipart.o
+debug/mimepart.o
+debug/mimetext.o
+debug/quotedprintable.o
+debug/smtpclient.o
+debug/moc_mail_client.o

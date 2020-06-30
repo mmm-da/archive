@@ -1,0 +1,13 @@
+{
+    "PicScale": 0.60,
+    
+    "LabNum":  5,
+    "Subject": "Сети ЭВМ и телекомуникации",
+    "Variant": "6",
+    "Theme": "Протоколы ARP/RARP",
+    "Task": "изучить протоколы ARP/RARP",
+    "Group": "ВТ-31",
+    "AuthorFIO": "Макаров Д.С.",
+    "LecturerFIO": "Федотов Е.А.",
+    "Year": 2020
+}

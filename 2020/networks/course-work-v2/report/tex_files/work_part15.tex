@@ -1,0 +1,55 @@
+\begin{itemize}
+\tightlist
+\item
+  реализация пула потоков в фреймворке Qt, при инициализации пула
+  выделяется количество потоков равное количеству логических
+  процессоров. При старте сканирования каждый поток сканирует 1 порт из
+  диапазона общеизвестных портов, при завершении работы поток не
+  закрывается, а используется для сканирование следующего необходимого
+  порта.
+\end{itemize}
+
+\hypertarget{ux43eux43fux438ux441ux430ux43dux438ux435-ux43aux43bux430ux441ux441ux43eux432-ux438ux441ux43fux43eux43bux44cux437ux443ux435ux43cux44bux445-ux432-ux43fux440ux438ux43bux43eux436ux435ux43dux438ux438}{%
+\subsection{Описание классов используемых в
+приложении}\label{ux43eux43fux438ux441ux430ux43dux438ux435-ux43aux43bux430ux441ux441ux43eux432-ux438ux441ux43fux43eux43bux44cux437ux443ux435ux43cux44bux445-ux432-ux43fux440ux438ux43bux43eux436ux435ux43dux438ux438}}
+
+Для отображения графического интерфейса, и обработки взаимодействий с
+пользованием используется класс \textbf{SimplePortScan}.
+
+В конструкторе класса создаются и настраиваются все элементы интерфейса
+и их валидация.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \ExtensionTok{QRegExp}\NormalTok{ *re = }\KeywordTok{new} \ExtensionTok{QRegExp}\NormalTok{(}\StringTok{"\^{}(?:(?:25[0{-}5]|2[0{-}4][0{-}9]|[01]?[0{-}9][0{-}9]?)}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{.)\{3\}(?:25[0{-}5]|2[0{-}4][0{-}9]|[01]?[0{-}9][0{-}9]?)$"}\NormalTok{);}
+    \ExtensionTok{QRegExpValidator}\NormalTok{ *validator = }\KeywordTok{new} \ExtensionTok{QRegExpValidator}\NormalTok{(*re);}
+\NormalTok{    ui{-}>setupUi(}\KeywordTok{this}\NormalTok{);}
+\NormalTok{    ui{-}>progressBar{-}>hide();}
+\NormalTok{    ui{-}>progressBar{-}>setMinimum(}\DecValTok{0}\NormalTok{);}
+\NormalTok{    ui{-}>progressBar{-}>setMaximum(PORT\_EDGE);}
+\NormalTok{    ui{-}>modeButton1{-}>hide();}
+\NormalTok{    ui{-}>modeButton2{-}>hide();}
+\NormalTok{    ui{-}>addressLine{-}>setValidator(validator);}
+\end{Highlighting}
+\end{Shaded}
+
+и выбирается кол-во потоков в пуле.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \KeywordTok{this}\NormalTok{{-}>threads.setMaxThreadCount(}\DecValTok{400}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+В слоте кнопки старта сканирования \texttt{on\_pushButton\_clicked()}
+запускается пул потоков и в цикле добавляются задачи
+\textbf{SimplePortScan} на сканирования конкретного порта (от 0 до
+PORT\_EDGE). Так же запускается шкала процесса сканирования и она
+отображается на экран.
+
+Каждая задача \textbf{SimplePortScan} вызывает сигнал
+\texttt{exit\_code(int,int)} указывающий на завершение сканирование
+порта. он содержит номер сканируемого порта, и его состояние.
+
+Обработчик этих сигналов \texttt{on\_result\_thread(int,int)} записывает
+результаты в \textbf{QMap}

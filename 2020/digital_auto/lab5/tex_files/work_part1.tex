@@ -1,0 +1,2455 @@
+\[f_1 = f_{v9} \land f_{v12}\] \[f_2 = f_{v9} \land f_{v12}\]
+\[f_3 = f_{v9} \land f_{v12}\]
+
+\[f_{v9} = 3<( x_4x_5+x_1x_2x_3)<8\]
+\[f_{v10} = 4\le ( x_1x_2x_3+x_4x_5)\le6\]
+\[f_{v11} = 5\le(x_2x_3+x_4x_5x_1)\le8\]
+\[f_{v12} = -2\le(x_1x_2-x_3x_4x_5)\le1\]
+
+\begin{longtable}[]{@{}ccccccccc@{}}
+\toprule
+№ & \(x_1x_2x_3x_4x_5\) & f\_v9 & f\_v10 & f\_v11 & f\_v12 & f1 & f2 &
+f3\tabularnewline
+\midrule
+\endhead
+1 & 00000 & 0 & 0 & 0 & 1 & 0 & 0 & 0\tabularnewline
+2 & 00001 & 0 & 0 & 0 & 1 & 0 & 0 & 0\tabularnewline
+3 & 00010 & 0 & 0 & 0 & 1 & 0 & 0 & 0\tabularnewline
+4 & 00011 & 0 & 0 & 1 & 0 & 0 & 0 & 0\tabularnewline
+5 & 00100 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+6 & 00101 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+7 & 00110 & 0 & 0 & 1 & 0 & 0 & 0 & 0\tabularnewline
+8 & 00111 & 1 & 1 & 1 & 0 & 0 & 0 & 0\tabularnewline
+9 & 01000 & 0 & 0 & 0 & 1 & 0 & 0 & 0\tabularnewline
+10 & 01001 & 0 & 0 & 0 & 1 & 0 & 0 & 0\tabularnewline
+11 & 01010 & 1 & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
+12 & 01011 & 1 & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
+13 & 01100 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+14 & 01101 & 1 & 1 & 1 & 0 & 0 & 0 & 0\tabularnewline
+15 & 01110 & 1 & 1 & 1 & 0 & 0 & 0 & 0\tabularnewline
+16 & 01111 & 1 & 1 & 0 & 0 & 0 & 0 & 0\tabularnewline
+17 & 10000 & 1 & 1 & 0 & 0 & 0 & 0 & 0\tabularnewline
+18 & 10001 & 1 & 1 & 0 & 1 & 1 & 1 & 0\tabularnewline
+19 & 10010 & 1 & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
+20 & 10011 & 1 & 0 & 1 & 1 & 1 & 0 & 1\tabularnewline
+21 & 10100 & 1 & 1 & 0 & 1 & 1 & 1 & 0\tabularnewline
+22 & 10101 & 1 & 1 & 0 & 0 & 0 & 0 & 0\tabularnewline
+23 & 10110 & 1 & 0 & 1 & 0 & 0 & 0 & 0\tabularnewline
+24 & 10111 & 0 & 0 & 1 & 0 & 0 & 0 & 0\tabularnewline
+25 & 11000 & 1 & 1 & 0 & 0 & 0 & 0 & 0\tabularnewline
+26 & 11001 & 1 & 0 & 1 & 0 & 0 & 0 & 0\tabularnewline
+27 & 11010 & 0 & 0 & 1 & 1 & 0 & 0 & 1\tabularnewline
+28 & 11011 & 0 & 0 & 0 & 1 & 0 & 0 & 0\tabularnewline
+29 & 11100 & 1 & 0 & 0 & 1 & 1 & 0 & 0\tabularnewline
+30 & 11101 & 0 & 0 & 1 & 1 & 0 & 0 & 1\tabularnewline
+31 & 11110 & 0 & 0 & 1 & 0 & 0 & 0 & 0\tabularnewline
+32 & 11111 & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{Система минимальных булевых функций}
+
+\(f_1\)
+
+\textbf{СДНФ}
+
+\begin{longtable}[]{@{}lrl@{}}
+\toprule
+№ & \(x_1x_2x_3x_4x_5\) & Простая импликанта?\tabularnewline
+\midrule
+\endhead
+{[}11{]} & 01010 &\tabularnewline
+{[}12{]} & 01011 &\tabularnewline
+{[}18{]} & 10001 &\tabularnewline
+{[}19{]} & 10010 &\tabularnewline
+{[}20{]} & 10011 &\tabularnewline
+{[}21{]} & 10100 &\tabularnewline
+{[}29{]} & 11100 &\tabularnewline
+\bottomrule
+\end{longtable}
+
+Список простых импликант
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+№ & \(x_1x_2x_3x_4x_5\) & Простая импликанта?\tabularnewline
+\midrule
+\endhead
+{[}11, 12{]} & 0101- & *\tabularnewline
+{[}18, 20{]} & 100-1 & *\tabularnewline
+{[}19, 20{]} & 1001- & *\tabularnewline
+{[}21, 29{]} & 1-100 & *\tabularnewline
+\bottomrule
+\end{longtable}
+
+Таблица простых импликант
+
+\begin{longtable}[]{@{}llllllll@{}}
+\toprule
+Простая импликанта & 11 & 12 & 18 & 19 & 20 & 21 & 29\tabularnewline
+\midrule
+\endhead
+0101- & * & * & & & & &\tabularnewline
+100-1 & & & * & & * & &\tabularnewline
+1001- & & & & * & * & &\tabularnewline
+1-100 & & & & & & * & *\tabularnewline
+\bottomrule
+\end{longtable}
+
+\[( \overline x_1x_2\overline x_3x_4 ) \lor ( x_1\overline x_2\overline x_3x_5 ) \lor ( x_1\overline x_2\overline x_3x_4 ) \lor ( x_1x_3\overline x_4\overline x_5 )\]
+
+\begin{longtable}[]{@{}lllllllllllllllll@{}}
+\toprule
+\begin{minipage}[b]{0.08\columnwidth}\raggedright
+Простые импликанты\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_6\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(u_1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(u_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(u_3\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(u_4\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_3\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_4\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_5\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_6\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+& \(u_1\) & \(u_2\) & \(u_3\) & \(u_4\) & \(v_1\) &
+\(v_2\)\tabularnewline
+\midrule
+\endhead
+\(f\) & - & - & - & - & * & *\tabularnewline
+\(v_1\) & * & * & & & &\tabularnewline
+\(v_2\) & & & * & * & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\(f_2\)
+
+\textbf{СДНФ}
+
+\begin{longtable}[]{@{}lrl@{}}
+\toprule
+№ & \(x_1x_2x_3x_4x_5\) & Простая импликанта?\tabularnewline
+\midrule
+\endhead
+{[}11{]} & 01010 &\tabularnewline
+{[}12{]} & 01011 &\tabularnewline
+{[}18{]} & 10001 & *\tabularnewline
+{[}19{]} & 10010 & *\tabularnewline
+{[}21{]} & 10100 & *\tabularnewline
+\bottomrule
+\end{longtable}
+
+Список простых импликант
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+№ & \(x_1x_2x_3x_4x_5\) & Простая импликанта?\tabularnewline
+\midrule
+\endhead
+{[}18{]} & 10001 & *\tabularnewline
+{[}19{]} & 10010 & *\tabularnewline
+{[}21{]} & 10100 & *\tabularnewline
+{[}11, 12{]} & 0101- & *\tabularnewline
+\bottomrule
+\end{longtable}
+
+Таблица простых импликант
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Простая импликанта & 11 & 12 & 18 & 19 & 21\tabularnewline
+\midrule
+\endhead
+10001 & & & * & &\tabularnewline
+10010 & & & & * &\tabularnewline
+10100 & & & & & *\tabularnewline
+0101- & * & * & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\[( x_1\overline x_2\overline x_3\overline x_4x_5 ) \lor ( x_1\overline x_2\overline x_3x_4\overline x_5 ) \lor ( x_1\overline x_2x_3\overline x_4\overline x_5 ) \lor ( \overline x_1x_2\overline x_3x_4 )\]
+
+\begin{longtable}[]{@{}llllllllllllllllll@{}}
+\toprule
+\begin{minipage}[b]{0.07\columnwidth}\raggedright
+Простые импликанты\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_6\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_7\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(u_1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(u_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(u_3\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(u_4\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(z_1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(z_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(z_3\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(z_4\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(z_5\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(z_6\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.07\columnwidth}\raggedright
+\(z_7\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+& \(u_1\) & \(u_2\) & \(u_3\) & \(u_4\) & \(v_1\) &
+\(v_2\)\tabularnewline
+\midrule
+\endhead
+\(f\) & - & - & - & - & * & *\tabularnewline
+\(v_1\) & * & * & & & &\tabularnewline
+\(v_2\) & & & * & * & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\(f_3\)
+
+\textbf{СДНФ}
+
+\begin{longtable}[]{@{}lrl@{}}
+\toprule
+№ & \(x_1x_2x_3x_4x_5\) & Простая импликанта?\tabularnewline
+\midrule
+\endhead
+{[}11{]} & 01010 &\tabularnewline
+{[}12{]} & 01011 &\tabularnewline
+{[}19{]} & 10010 &\tabularnewline
+{[}20{]} & 10011 &\tabularnewline
+{[}27{]} & 11010 &\tabularnewline
+{[}30{]} & 11101 & *\tabularnewline
+\bottomrule
+\end{longtable}
+
+Список простых импликант
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+№ & \(x_1x_2x_3x_4x_5\) & Простая импликанта?\tabularnewline
+\midrule
+\endhead
+{[}30{]} & 11101 & *\tabularnewline
+{[}11, 12{]} & 0101- & *\tabularnewline
+{[}11, 27{]} & -1010 & *\tabularnewline
+{[}19, 20{]} & 1001- & *\tabularnewline
+{[}19, 27{]} & 1-010 & *\tabularnewline
+\bottomrule
+\end{longtable}
+
+Таблица простых импликант
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+Простая импликанта & 11 & 12 & 19 & 20 & 27 & 30\tabularnewline
+\midrule
+\endhead
+11101 & & & & & & *\tabularnewline
+0101- & * & * & & & &\tabularnewline
+-1010 & * & & & & * &\tabularnewline
+1001- & & & * & * & &\tabularnewline
+1-010 & & & * & & * &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\[( x_1x_2x_3\overline x_4x_5 ) \lor ( \overline x_1x_2\overline x_3x_4 )  \lor ( x_1\overline x_2\overline x_3x_4 ) \lor ( x_1\overline x_3x_4\overline x_5 )\]
+
+\begin{longtable}[]{@{}lllllllllllllllll@{}}
+\toprule
+\begin{minipage}[b]{0.08\columnwidth}\raggedright
+Простые импликанты\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.06\columnwidth}\raggedright
+\(\overline x5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_6\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(u_1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(u_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(u_3\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(u_4\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_3\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_4\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_5\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\(z_6\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.06\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+& \(u_1\) & \(u_2\) & \(u_3\) & \(u_4\) & \(v_1\) &
+\(v_2\)\tabularnewline
+\midrule
+\endhead
+\(f\) & - & - & - & - & * & *\tabularnewline
+\(v_1\) & * & * & & & &\tabularnewline
+\(v_2\) & & & * & * & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}
+\centering
+\includegraphics{./files/task1.png}
+\caption{Схема для задания 1}
+\end{figure}
+
+\textbf{Минимальная система булевых функций}
+
+\textbf{СДНФ}
+
+\begin{longtable}[]{@{}lrll@{}}
+\toprule
+№ & \(x_1x_2x_3x_4x_5\) & Простая импликанта? & Признаки
+принадлежности\tabularnewline
+\midrule
+\endhead
+\{11\} & 01010 & & \{1, 2, 3\}\tabularnewline
+\{12\} & 01011 & & \{1, 2, 3\}\tabularnewline
+\{18\} & 10001 & & \{1, 2\}\tabularnewline
+\{19\} & 10010 & & \{1, 2, 3\}\tabularnewline
+\{20\} & 10011 & & \{1, 3\}\tabularnewline
+\{21\} & 10100 & & \{1, 2\}\tabularnewline
+\{27\} & 11010 & & \{3\}\tabularnewline
+\{29\} & 11100 & & \{1\}\tabularnewline
+\{30\} & 11101 & * & \{3\}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\[\textbf{11-12:}\quad  0101-_{\{1,2,3\}} \lor 01010_{\{1,2,3\}} \lor 01011_{\{1,2,3\}} = 0101-_{\{1,2,3\}}\]
+\[\textbf{11-27:}\quad  -1010_{\{3\}} \lor 01010_{\{1,2,3\}} \lor 11010_{\{3\}} = -1010_{\{3\}} \lor 01010_{\{1,2,3\}}\]
+\[\textbf{18-20:}\quad  100-1_{\{1\}} \lor 10001_{\{1,2\}} \lor 10011_{\{1,3\}} = 100-1_{\{1\}} \lor 10001_{\{2\}} \lor 10011_{\{3\}}\]
+\[\textbf{19-20:}\quad  1001-_{\{1,3\}} \lor 10010_{\{1, 2, 3\}} \lor 10011_{\{1,3\}} = 1001-_{\{1,3\}} \lor 10010_{\{2\}}\]
+\[\textbf{19-27:}\quad 1-010_{\{3\}} \lor 10010_{\{1, 2, 3\}} \lor 11010_{\{3\}} = 1-010_{\{3\}} \lor 10010_{\{1,2\}}\]
+
+\[\textbf{21-29:}\quad  1-100_{\{1\}} \lor 10100_{\{1, 2\}} \lor 11100_{\{1\}} = 1-100_{\{1\}} \lor 10100_{\{2\}}\]
+
+Простые импликанты:
+
+\begin{itemize}
+\tightlist
+\item
+  \(11101_{\{3\}}\)
+\item
+  \(0101-_{\{1,2,3\}}\)
+\item
+  \(-1010_{\{3\}}\)
+\item
+  \(100-1_{\{1\}}\)
+\item
+  \(10001_{\{2\}}\)
+\item
+  \(1001-_{\{1,3\}}\)
+\item
+  \(1-010_{\{3\}}\)
+\item
+  \(10010_{\{2\}}\)
+\item
+  \(1-100_{\{1\}}\)
+\item
+  \(10100_{\{2\}}\)
+\end{itemize}
+
+\begin{longtable}[]{@{}clllllllllllllllllllllllllll@{}}
+\toprule
+Простые импликанты & 11 & & & 12 & & & 18 & & & 19 & & & 20 & & & 21 & &
+& 27 & & & 29 & & & 30 & &\tabularnewline
+\midrule
+\endhead
+& 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3
+& 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3\tabularnewline
+\(\checkmark 11101_{\{3\}}\) & & & & & & & & & & & & & & & & & & & & & &
+& & & & & *\tabularnewline
+\(\checkmark0101-_{\{1,2,3\}}\) & * & * & * & * & * & * & & & & & & & &
+& & & & & & & & & & & & &\tabularnewline
+\(\checkmark-1010_{\{3\}}\) & & & * & & & & & & & & & & & & & & & & & &
+* & & & & & &\tabularnewline
+\(\checkmark100-1_{\{1\}}\) & & & & & & & * & & & & & & * & & & & & & &
+& & & & & & &\tabularnewline
+\(\checkmark10001_{\{2\}}\) & & & & & & & & * & & & & & & & & & & & & &
+& & & & & &\tabularnewline
+\(\checkmark 1001-_{\{1,3\}}\) & & & & & & & & & & * & & * & * & & * & &
+& & & & & & & & & &\tabularnewline
+\(1-010_{\{3\}}\) & & & & & & & & & & & & * & & & & & & & & & * & & & &
+& &\tabularnewline
+\(\checkmark10010_{\{2\}}\) & & & & & & & & & & * & * & & & & & & & & &
+& & & & & & &\tabularnewline
+\(\checkmark 1-100_{\{1\}}\) & & & & & & & & & & & & & & & & * & & & & &
+& * & & & & &\tabularnewline
+\(\checkmark10100_{\{2\}}\) & & & & & & & & & & & & & & & & & * & & & &
+& & & & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\[f_1 = \overline x_1 x_2 \overline x_3 x_4  \lor x_1 \overline x_2 \overline x_3 x_4 \lor x_1 \overline x_2 \overline x_3 x_5 \lor x_1 x_3 \overline x_4 \overline x_5\]
+\[f2 = \overline x_1 x_2 \overline x_3 x_4  \lor x_1 \overline x_2 \overline x_3 \overline x_4 x_5 \lor x_1 \overline x_2 \overline x_3 x_4 \overline x_5 \lor x_1 \overline x_2 x_3 \overline x_4 \overline x_5\]
+\[f3 = \overline x_1 x_2 \overline x_3 x_4  \lor x_1 \overline x_2 \overline x_3 x_4  \lor x_1 x_2 x_3 \overline x_4 x_5 \lor x_2 \overline x_3 x_4 \overline x_5\]
+
+\begin{longtable}[]{@{}cllllllllllllllllllll@{}}
+\toprule
+\begin{minipage}[b]{0.06\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x_1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright
+\(\overline x_1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x_2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright
+\(\overline x_2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x_3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright
+\(\overline x_3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x_4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright
+\(\overline x_4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(x_5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright
+\(\overline x_5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_1\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_2\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_3\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_4\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_5\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_6\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_7\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_8\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_9\)\strut
+\end{minipage} & \begin{minipage}[b]{0.02\columnwidth}\raggedright
+\(z_{10}\)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_3\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_4\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_5\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_6\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_7\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_8\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(u_9\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_1\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_2\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_3\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_4\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_5\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_6\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+-\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_7\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_8\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_9\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.06\columnwidth}\centering
+\(z_{10}\)\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+*\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage} & \begin{minipage}[t]{0.02\columnwidth}\raggedright
+\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}lllllllllllllll@{}}
+\toprule
+& \(u_1\) & \(u_2\) & \(u_3\) & \(u_4\) & \(u_5\) & \(u_6\) & \(u_7\) &
+\(u_8\) & \(u_9\) & \(v_1\) & \(v_2\) & \(v_3\) & \(v_4\) &
+\(v_5\)\tabularnewline
+\midrule
+\endhead
+\(f_1\) & - & & - & & - & & - & & & * & * & & &\tabularnewline
+\(f_2\) & - & & & - & & - & & - & & & & * & * &\tabularnewline
+\(f_3\) & - & - & & & - & & & & - & * & & & & *\tabularnewline
+\(v_1\) & * & & & & * & & & & & & & & &\tabularnewline
+\(v_2\) & & & * & & & & * & & & & & & &\tabularnewline
+\(v_3\) & * & & & * & & & & & & & & & &\tabularnewline
+\(v_4\) & & & & & & * & & * & & & & & &\tabularnewline
+\(v_5\) & & * & & & & & & & * & & & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}
+\centering
+\includegraphics{./files/task2.png}
+\caption{Схема для задания 2}
+\end{figure}

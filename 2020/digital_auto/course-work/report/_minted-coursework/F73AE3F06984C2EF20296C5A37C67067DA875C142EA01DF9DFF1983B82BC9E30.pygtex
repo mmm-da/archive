@@ -1,0 +1,48 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{automaton}\PYG{p}{(}\PYG{n}{t1}\PYG{p}{,}\PYG{n}{t2}\PYG{p}{,}\PYG{n}{x1}\PYG{p}{,}\PYG{n}{x2}\PYG{p}{,}\PYG{n}{x3}\PYG{p}{):}
+    \PYG{n}{z8} \PYG{o}{=} \PYG{o+ow}{not} \PYG{n}{t1} \PYG{o+ow}{and} \PYG{n}{t2}
+    \PYG{n}{z7} \PYG{o}{=} \PYG{o+ow}{not} \PYG{n}{t1} \PYG{o+ow}{and} \PYG{o+ow}{not} \PYG{n}{t2}
+    \PYG{n}{z6} \PYG{o}{=} \PYG{o+ow}{not} \PYG{n}{x2} \PYG{o+ow}{and} \PYG{o+ow}{not} \PYG{n}{x3}
+    \PYG{n}{z5} \PYG{o}{=} \PYG{o+ow}{not} \PYG{n}{x1} \PYG{o+ow}{and} \PYG{o+ow}{not} \PYG{n}{x3}
+    \PYG{n}{z4} \PYG{o}{=} \PYG{o+ow}{not} \PYG{n}{x1} \PYG{o+ow}{and} \PYG{o+ow}{not} \PYG{n}{x2}
+    \PYG{n}{z3} \PYG{o}{=} \PYG{n}{t1} \PYG{o+ow}{and} \PYG{o+ow}{not} \PYG{n}{t2}
+    \PYG{n}{z2} \PYG{o}{=} \PYG{o+ow}{not} \PYG{n}{t1} \PYG{o+ow}{and} \PYG{n}{z4}
+    \PYG{n}{z1} \PYG{o}{=} \PYG{o+ow}{not} \PYG{n}{x3} \PYG{o+ow}{and} \PYG{n}{z4}
+    
+    \PYG{n}{u1} \PYG{o}{=} \PYG{n}{z1} \PYG{o+ow}{and} \PYG{n}{z8} 
+    \PYG{n}{u2} \PYG{o}{=} \PYG{n}{z1} \PYG{o+ow}{and} \PYG{n}{z3}
+    \PYG{n}{u3} \PYG{o}{=} \PYG{n}{t2} \PYG{o+ow}{and} \PYG{n}{z2}
+    \PYG{n}{u4} \PYG{o}{=} \PYG{n}{z3} \PYG{o+ow}{and} \PYG{n}{z5}
+    \PYG{n}{u5} \PYG{o}{=} \PYG{n}{x3} \PYG{o+ow}{and} \PYG{n}{z2}
+    \PYG{n}{u6} \PYG{o}{=} \PYG{n}{z6} \PYG{o+ow}{and} \PYG{n}{z7}
+    
+    \PYG{n}{v1} \PYG{o}{=} \PYG{n}{u1} \PYG{o+ow}{or} \PYG{n}{u2}
+    \PYG{n}{v2} \PYG{o}{=} \PYG{n}{u3} \PYG{o+ow}{or} \PYG{n}{u4}
+    \PYG{n}{f1} \PYG{o}{=} \PYG{n}{v1}
+    \PYG{n}{f2} \PYG{o}{=} \PYG{n}{u5} \PYG{o+ow}{or} \PYG{n}{u6}
+    \PYG{n}{y1} \PYG{o}{=} \PYG{n}{v1}
+    \PYG{n}{y2} \PYG{o}{=} \PYG{n}{u5} \PYG{o+ow}{or} \PYG{n}{v2}
+    \PYG{n}{y3} \PYG{o}{=} \PYG{n}{u5} \PYG{o+ow}{or} \PYG{n}{u6}
+
+    \PYG{k}{return} \PYG{n}{f1}\PYG{p}{,}\PYG{n}{f2}\PYG{p}{,}\PYG{n}{y1}\PYG{p}{,}\PYG{n}{y2}\PYG{p}{,}\PYG{n}{y3}
+
+\PYG{n}{trigger1} \PYG{o}{=} \PYG{k+kc}{False}
+\PYG{n}{trigger2} \PYG{o}{=} \PYG{k+kc}{False}
+
+\PYG{c+c1}{\PYGZsh{}A1\PYGZhy{}\PYGZgt{}A2 Z1 W3}
+\PYG{n}{input1}\PYG{p}{,}\PYG{n}{input2}\PYG{p}{,}\PYG{n}{input3} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{,}\PYG{k+kc}{False}\PYG{p}{,}\PYG{k+kc}{False}
+\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{n}{output1}\PYG{p}{,}\PYG{n}{output2}\PYG{p}{,}\PYG{n}{output3} \PYG{o}{=} \PYG{n}{automaton}\PYG{p}{(}\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{n}{input1}\PYG{p}{,}\PYG{n}{input2}\PYG{p}{,}\PYG{n}{input3}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Триггеры:\PYGZsq{}}\PYG{p}{,}\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Выходы:\PYGZsq{}}\PYG{p}{,}\PYG{n}{output1}\PYG{p}{,}\PYG{n}{output2}\PYG{p}{,}\PYG{n}{output3}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}A2\PYGZhy{}\PYGZgt{}A2 Z2 W4}
+\PYG{n}{input1}\PYG{p}{,}\PYG{n}{input2}\PYG{p}{,}\PYG{n}{input3} \PYG{o}{=} \PYG{k+kc}{False}\PYG{p}{,}\PYG{k+kc}{False}\PYG{p}{,}\PYG{k+kc}{True}
+\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{n}{output1}\PYG{p}{,}\PYG{n}{output2}\PYG{p}{,}\PYG{n}{output3} \PYG{o}{=} \PYG{n}{automaton}\PYG{p}{(}\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{n}{input1}\PYG{p}{,}\PYG{n}{input2}\PYG{p}{,}\PYG{n}{input3}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Триггеры:\PYGZsq{}}\PYG{p}{,}\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Выходы:\PYGZsq{}}\PYG{p}{,}\PYG{n}{output1}\PYG{p}{,}\PYG{n}{output2}\PYG{p}{,}\PYG{n}{output3}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}A2\PYGZhy{}\PYGZgt{}A3 Z3 W5}
+\PYG{n}{input1}\PYG{p}{,}\PYG{n}{input2}\PYG{p}{,}\PYG{n}{input3} \PYG{o}{=} \PYG{k+kc}{False}\PYG{p}{,}\PYG{k+kc}{False}\PYG{p}{,}\PYG{k+kc}{False}
+\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{n}{output1}\PYG{p}{,}\PYG{n}{output2}\PYG{p}{,}\PYG{n}{output3} \PYG{o}{=} \PYG{n}{automaton}\PYG{p}{(}\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{n}{input1}\PYG{p}{,}\PYG{n}{input2}\PYG{p}{,}\PYG{n}{input3}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Триггеры:\PYGZsq{}}\PYG{p}{,}\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Выходы:\PYGZsq{}}\PYG{p}{,}\PYG{n}{output1}\PYG{p}{,}\PYG{n}{output2}\PYG{p}{,}\PYG{n}{output3}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}A3\PYGZhy{}\PYGZgt{}A1 Z4 W2}
+\PYG{n}{input1}\PYG{p}{,}\PYG{n}{input2}\PYG{p}{,}\PYG{n}{input3} \PYG{o}{=} \PYG{k+kc}{False}\PYG{p}{,}\PYG{k+kc}{True}\PYG{p}{,}\PYG{k+kc}{False}
+\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{n}{output1}\PYG{p}{,}\PYG{n}{output2}\PYG{p}{,}\PYG{n}{output3} \PYG{o}{=} \PYG{n}{automaton}\PYG{p}{(}\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{n}{input1}\PYG{p}{,}\PYG{n}{input2}\PYG{p}{,}\PYG{n}{input3}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Триггеры:\PYGZsq{}}\PYG{p}{,}\PYG{n}{trigger1}\PYG{p}{,}\PYG{n}{trigger2}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Выходы:\PYGZsq{}}\PYG{p}{,}\PYG{n}{output1}\PYG{p}{,}\PYG{n}{output2}\PYG{p}{,}\PYG{n}{output3}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,20 @@
+// Автомат Милли
+digraph {
+	1 [label="a₁"]
+	2 [label="a₂"]
+	3 [label="a₃"]
+	1 -> 2 [label="x₁
+ (y₃)"]
+	1 -> 2 [label="!x₁x₃
+ (y₂y₃)"]
+	1 -> 2 [label="!x₁!x₃
+ (y₃)"]
+	2 -> 2 [label="x₃
+ (y₂y₃)"]
+	2 -> 3 [label="!x₃
+ (y₁y₂)"]
+	3 -> 3 [label="!x₂
+ (y₁y₂)"]
+	3 -> 1 [label="x₂
+ (y₂)"]
+}

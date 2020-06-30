@@ -1,0 +1,245 @@
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Перевод числа из десятичного представления в двоичное и наоборот
+\end{enumerate}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+10-чное представление & 2-чное представление\tabularnewline
+\midrule
+\endhead
+159 & 10011111\tabularnewline
+65 & 1000001\tabularnewline
+74 & 1001010\tabularnewline
+115 & 01110011\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Какое из перечисленных далее двоичных значений соответствует адресу
+  207.209.68.100?
+\end{enumerate}
+
+\textbf{Ответ:} а, 11001111 11010001 01000100 01100100.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Какое из перечисленных далее десятично-точечных значений соответствует
+  двоичному адресу 11001100 00001010 11001000 00000100?
+\end{enumerate}
+
+\textbf{Ответ:} д, 204.10.200.4
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Преобразуйте нестандартную маску подсети из десятично-точечной формы в
+  форму с префиксом сети и наоборот.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    255.255.255.192. -\textgreater{} /26
+  \item
+    255.255.252.0. -\textgreater{} /22
+  \item
+    /27 -\textgreater{} 255.255.255.224
+  \item
+    /21 -\textgreater{} 255.255.248.0.
+  \end{itemize}
+\item
+  Интернет-провайдер выделил адрес сети 206.73.118.0/24. Заполните
+  таблицы, указав количество бит, необходимое для идентификаторов
+  подсети или узла, число бит, оставшееся на идентификатор узла или
+  подсети, маску подсети в виде префикса сети и маску подсети в
+  десятично-точечном виде. При заполнении отталкивайтесь от требований,
+  указанных над таблицей.
+\end{enumerate}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\begin{minipage}[b]{0.12\columnwidth}\raggedright
+Требование\strut
+\end{minipage} & \begin{minipage}[b]{0.32\columnwidth}\raggedright
+Количество бит, необоходимое для идентификатора подсети\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright
+Идентификатор узла\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright
+Маска подсети CIDR\strut
+\end{minipage} & \begin{minipage}[b]{0.20\columnwidth}\raggedright
+Маска подсети (десятично-точечная)\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
+6 подсетей\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+/27\strut
+\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\raggedright
+255.255.255.224\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
+9 подсетей\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+/28\strut
+\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\raggedright
+255.255.255.240\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
+3 подсети\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+6\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+/26\strut
+\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\raggedright
+255.255.255.192\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.12\columnwidth}\raggedright
+20 узлов на подсеть\strut
+\end{minipage} & \begin{minipage}[t]{0.32\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
+/27\strut
+\end{minipage} & \begin{minipage}[t]{0.20\columnwidth}\raggedright
+255.255.255.224\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Определите класс сети и маску подсети по умолчанию для каждого
+  приведенного в таблице идентификатора сети. Затем вычислите
+  действительную маску подсети, назначенную адресу, доступное количество
+  подсетей и количество узлов в каждой подсети.
+\end{enumerate}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+\begin{minipage}[b]{0.16\columnwidth}\raggedright
+Идентификатор подсети\strut
+\end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\raggedright
+Класс сети\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Маска по умолчанию\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright
+Заданная маска\strut
+\end{minipage} & \begin{minipage}[b]{0.18\columnwidth}\raggedright
+Кол-во доступных подсетей\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright
+Кол-во доступных узлов\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.16\columnwidth}\raggedright
+192.168.212.0/28\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+С\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+255.255.255.0\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
+255.255.255.240\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+14 узлов\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright
+151.142.0.0/21\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+B\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+255.255.0.0\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
+255.255.248.0\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+32\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+2046 узлов\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright
+8.0.0.0/12\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+A\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+255.0.0.0\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
+255.240.0.0\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+16\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+\(2^20-2\) узлов\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright
+205.168.75.0/26\strut
+\end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+C\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+255.255.255.0\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
+255.255.255.192\strut
+\end{minipage} & \begin{minipage}[t]{0.18\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+62 узла\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  С помощью логической функции ``И'' определить, принадлежат ли два
+  адреса одной и той же логической подсети.
+\end{enumerate}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Адрес 1 & Адрес 2 & Принадлежность\tabularnewline
+\midrule
+\endhead
+192.168.212.45/26 & 192.168.233.46/25 & -\tabularnewline
+172.22.222.45/17 & 172.22.212.48/18 & +\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{Первая пара:}
+
+адрес подсети: * адреса 1: 192.168.212.0 * адреса 2: 192.168.233.0
+
+Для этой сети применим маска класса C - 255.255.255.0 Адреса сетей
+различаются в третьем октете, значит, адреса в разных сетях.
+
+\textbf{Вторая пара:}
+
+адрес подсети: * адреса 1: 172.22.128.0 * адреса 2: 172.22.192.0
+
+Для этой сети применим маска класса C - 255.255.0.0 Первые два октета
+одинаковые, значит, адреса в одной логической подсети.

@@ -1,0 +1,18 @@
+\babel@toc {russian}{}
+\babel@toc {russian}{}
+\contentsline {section}{{\cyrillictext \CYRS \cyro \cyrd \cyre \cyrr \cyrzh \cyra \cyrn \cyri \cyre }}{1}{section*.1}%
+\contentsline {section}{\numberline {1}Введение}{2}{section.1}%
+\contentsline {section}{\numberline {2}Построение граф-схемы алгоритма.}{2}{section.2}%
+\contentsline {section}{\numberline {3}Получение автоматов Мили и Мура в табличном и графовом виде.}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Автомат Мили.}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Автомат Мура.}{4}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Получение функций возбуждения триггеров и минимизация системы булевых функций автоматов.}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Автомат Мили. D-триггер.}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Автомат Мили. T-триггер.}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Автомат Мура. D-триггер.}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Автомат Мура. T-триггер.}{12}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Выбор минимальной схемы автомата.}{15}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Программа-симулятор автомата и ее тестирование.}{16}{section.5}%
+\contentsline {section}{\numberline {6}Вывод}{17}{section.6}%
+\contentsline {section}{\numberline {7}{\cyrillictext \CYRS \cyrp \cyri \cyrs \cyro \cyrk \ \cyrl \cyri \cyrt \cyre \cyrr \cyra \cyrt \cyru \cyrr \cyrery }}{18}{section.7}%
+\contentsline {section}{\numberline {8}Приложение}{19}{section.8}%

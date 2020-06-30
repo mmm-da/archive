@@ -1,0 +1,20 @@
+Интерфейс сканера содержит:
+
+\begin{itemize}
+\item
+  адресную строку
+\item
+  шкалу прогресса
+\item
+  список событий сканера
+\end{itemize}
+
+Корректность введенного адреса проверяется при помощи регулярного
+выражения.
+
+\hypertarget{ux440ux435ux430ux43bux438ux437ux430ux446ux438ux44f-ux43cux43dux43eux433ux43eux43fux43eux442ux43eux447ux43dux43eux433ux43e-ux441ux43aux430ux43dux438ux440ux43eux432ux430ux43dux438ux44f}{%
+\subsection{Реализация многопоточного
+сканирования}\label{ux440ux435ux430ux43bux438ux437ux430ux446ux438ux44f-ux43cux43dux43eux433ux43eux43fux43eux442ux43eux447ux43dux43eux433ux43e-ux441ux43aux430ux43dux438ux440ux43eux432ux430ux43dux438ux44f}}
+
+Многопоточное сканирование использует, объединение потоков в пул потоков
+для эффективного использование ресурсов компьютера. \textbf{QThreadPool}

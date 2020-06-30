@@ -1,0 +1,133 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef SCAN\PYGZus{}FUNCTIONS\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define SCAN\PYGZus{}FUNCTIONS\PYGZus{}H}
+\PYG{c+c1}{//stdout messages}
+\PYG{c+c1}{//\PYGZsh{}define LOGS\PYGZus{}ENABLE}
+
+\PYG{c+c1}{//OS independed includes}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+c1}{//OS depended includes}
+\PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}WIN32}
+    \PYG{c+cp}{\PYGZsh{}define WIN32\PYGZus{}LEAN\PYGZus{}AND\PYGZus{}MEAN}
+    \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}windows.h\PYGZgt{}}
+    \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}winsock2.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}else }
+    \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}unistd.h\PYGZgt{}}
+    \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}socket.h\PYGZgt{}}
+    \PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}errno.h\PYGZgt{}}
+    \PYG{c+cp}{\PYGZsh{}pragma message \PYGZdq{}UNIX sockets API isn\PYGZbs{}\PYGZsq{}t fully implemented ...\PYGZbs{}n\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}endif}
+
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}init}\PYG{p}{();}
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}get\PYGZus{}last\PYGZus{}error}\PYG{p}{();}
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}socket}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{domain}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{type}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{protocol}\PYG{p}{);}
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}cleanup}\PYG{p}{();}
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}close\PYGZus{}socket}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{socket}\PYG{p}{);}
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}in\PYGZus{}connect}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{sock}\PYG{p}{,}\PYG{k}{const} \PYG{k}{struct} \PYG{n}{sockaddr\PYGZus{}in} \PYG{o}{*}\PYG{n}{adr}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{adr\PYGZus{}len}\PYG{p}{);}
+
+\PYG{k+kt}{int} \PYG{n}{last\PYGZus{}error\PYGZus{}code} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{c+c1}{//sockets API functions wrappers}
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}init}\PYG{p}{()\PYGZob{}}
+    \PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}WIN32}
+        \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE}
+            \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Winsock init: \PYGZdq{}}\PYG{p}{);}
+        \PYG{c+cp}{\PYGZsh{}endif}
+        \PYG{n}{WSADATA} \PYG{n}{wsaData} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{\PYGZcb{};}
+        \PYG{n}{WORD} \PYG{n}{versionRequested} \PYG{o}{=} \PYG{n}{MAKEWORD}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);} 
+        \PYG{k+kt}{int} \PYG{n}{startupResult} \PYG{o}{=} \PYG{n}{WSAStartup}\PYG{p}{(}\PYG{n}{versionRequested}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{wsaData}\PYG{p}{);}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{startupResult} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+            \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE}
+                \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Winsock startup failed with error: \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{startupResult}\PYG{p}{);}
+            \PYG{c+cp}{\PYGZsh{}endif}
+            \PYG{n}{exit}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{};}
+    \PYG{c+cp}{\PYGZsh{}else}
+        \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE }
+            \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}UNIX sockets init: \PYGZdq{}}\PYG{p}{);}
+        \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE }
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}OK!}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{n}{last\PYGZus{}error\PYGZus{}code} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}get\PYGZus{}last\PYGZus{}error}\PYG{p}{()\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{last\PYGZus{}error} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}WIN32}
+        \PYG{n}{last\PYGZus{}error} \PYG{o}{=} \PYG{n}{WSAGetLastError}\PYG{p}{();}
+        \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE}
+            \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Program failed with error: \PYGZpc{}d (Winsock Error)}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{last\PYGZus{}error}\PYG{p}{);}
+        \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{c+cp}{\PYGZsh{}else}
+        \PYG{n}{last\PYGZus{}error} \PYG{o}{=} \PYG{n}{errno}\PYG{p}{;}
+        \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE}
+            \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Program failed with error: \PYGZpc{}d (Unix ErrNo)}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{last\PYGZus{}error}\PYG{p}{);}
+        \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{n}{last\PYGZus{}error\PYGZus{}code} \PYG{o}{=} \PYG{n}{last\PYGZus{}error}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{last\PYGZus{}error}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{int} \PYG{n+nf}{crs\PYGZus{}socket}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{domain}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{type}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{protocol}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{result\PYGZus{}socket} \PYG{o}{=} \PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{socket}\PYG{p}{(}\PYG{n}{domain}\PYG{p}{,}\PYG{n}{type}\PYG{p}{,}\PYG{n}{protocol}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}WIN32}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{result\PYGZus{}socket} \PYG{o}{==} \PYG{n}{INVALID\PYGZus{}SOCKET}\PYG{p}{)\PYGZob{}}
+    \PYG{c+cp}{\PYGZsh{}else}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{result\PYGZus{}socket} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+    \PYG{c+cp}{\PYGZsh{}endif}
+            \PYG{n}{crs\PYGZus{}get\PYGZus{}last\PYGZus{}error}\PYG{p}{();}
+            \PYG{k}{return}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return}\PYG{p}{(}\PYG{n}{result\PYGZus{}socket}\PYG{p}{);}
+\PYG{p}{\PYGZcb{};}
+
+
+
+\PYG{k+kt}{int} \PYG{n}{crs\PYGZus{}cleanup}\PYG{p}{()\PYGZob{}}
+    \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Cleanup: \PYGZdq{}}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}WIN32}
+        \PYG{n}{WSACleanup}\PYG{p}{();}
+    \PYG{c+cp}{\PYGZsh{}else}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}OK!}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{int} \PYG{n}{crs\PYGZus{}close\PYGZus{}socket}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{socket}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{return\PYGZus{}value} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}WIN32}
+        \PYG{n}{return\PYGZus{}value} \PYG{o}{=} \PYG{n}{closesocket}\PYG{p}{((}\PYG{n}{SOCKET}\PYG{p}{)}\PYG{n}{socket}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}else}
+        \PYG{n}{return\PYGZus{}value} \PYG{o}{=} \PYG{n}{close}\PYG{p}{(}\PYG{n}{socket}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{return\PYGZus{}value} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{crs\PYGZus{}get\PYGZus{}last\PYGZus{}error}\PYG{p}{();}
+        \PYG{k}{return}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{int} \PYG{n}{crs\PYGZus{}in\PYGZus{}connect}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{sock}\PYG{p}{,}\PYG{k}{const} \PYG{k}{struct} \PYG{n}{sockaddr\PYGZus{}in} \PYG{o}{*}\PYG{n}{adr}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{adr\PYGZus{}len}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{return\PYGZus{}value} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{c+cp}{\PYGZsh{}ifdef \PYGZus{}WIN32}
+        \PYG{n}{return\PYGZus{}value} \PYG{o}{=} \PYG{n}{connect}\PYG{p}{((}\PYG{n}{SOCKET}\PYG{p}{)}\PYG{n}{sock}\PYG{p}{,(}\PYG{k}{struct} \PYG{n}{sockaddr}\PYG{o}{*}\PYG{p}{)}\PYG{n}{adr}\PYG{p}{,}\PYG{n}{adr\PYGZus{}len}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}else}
+        \PYG{n}{return\PYGZus{}value} \PYG{o}{=} \PYG{n}{connect}\PYG{p}{(}\PYG{n}{sock}\PYG{p}{,(}\PYG{k}{struct} \PYG{n}{sockaddr}\PYG{o}{*}\PYG{p}{)}\PYG{n}{adr}\PYG{p}{,}\PYG{n}{adr\PYGZus{}len}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{return\PYGZus{}value} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{crs\PYGZus{}get\PYGZus{}last\PYGZus{}error}\PYG{p}{();}
+        \PYG{k}{return}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{c+cp}{\PYGZsh{}ifdef LOGS\PYGZus{}ENABLE}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}OK!}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+    \PYG{c+cp}{\PYGZsh{}endif}
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\PYG{c+cp}{\PYGZsh{}endif}
+\end{Verbatim}

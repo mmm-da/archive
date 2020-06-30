@@ -1,0 +1,163 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}define WIN32\PYGZus{}LEAN\PYGZus{}AND\PYGZus{}MEAN}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}windows.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}winsock2.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}ws2tcpip.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}wsipx.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}string\PYGZgt{}}
+
+
+\PYG{n}{using} \PYG{n}{namespace} \PYG{n}{std}\PYG{p}{;}
+
+\PYG{k+kt}{int} \PYG{n+nf}{initWSA}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{n}{WORD} \PYG{n}{wVersionRequested}\PYG{p}{;}
+    \PYG{n}{WSADATA} \PYG{n}{wsaData}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{err}\PYG{p}{;}
+    \PYG{n}{wVersionRequested} \PYG{o}{=} \PYG{n}{MAKEWORD}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{n}{err} \PYG{o}{=} \PYG{n}{WSAStartup}\PYG{p}{(}\PYG{n}{wVersionRequested}\PYG{p}{,} \PYG{o}{\PYGZam{}}\PYG{n}{wsaData}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{err} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}WSAStartup failed with error: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{err} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{WSAGetLastError}\PYG{p}{()} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+        \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{closeWSA}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{err}\PYG{p}{;}
+    \PYG{n}{err} \PYG{o}{=} \PYG{n}{WSACleanup}\PYG{p}{();}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{err} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}WSACleanup failed with error: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{err} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{WSAGetLastError}\PYG{p}{()} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+        \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{long} \PYG{k+kt}{int} \PYG{n+nf}{get\PYGZus{}file\PYGZus{}size}\PYG{p}{(}\PYG{k+kt}{FILE}\PYG{o}{*} \PYG{n}{f}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{long} \PYG{k+kt}{int} \PYG{n}{size}\PYG{p}{;}
+    \PYG{n}{fseek}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{SEEK\PYGZus{}END}\PYG{p}{);}
+    \PYG{n}{size} \PYG{o}{=} \PYG{n}{ftell}\PYG{p}{(}\PYG{n}{f}\PYG{p}{);}
+    \PYG{n}{fseek}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{SEEK\PYGZus{}SET}\PYG{p}{);}
+    \PYG{k}{return} \PYG{n}{size}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k}{struct} \PYG{n}{first\PYGZus{}packet} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{unsigned} \PYG{n}{file\PYGZus{}sz}\PYG{p}{;}
+    \PYG{k+kt}{unsigned} \PYG{n}{max\PYGZus{}buf\PYGZus{}sz}\PYG{p}{;}
+    \PYG{k+kt}{unsigned} \PYG{n}{full\PYGZus{}packet\PYGZus{}num}\PYG{p}{;}
+    \PYG{k+kt}{unsigned} \PYG{n}{last\PYGZus{}packet\PYGZus{}size}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{void} \PYG{n+nf}{sendFile}\PYG{p}{(}\PYG{n}{SOCKET} \PYG{n}{s}\PYG{p}{,} \PYG{k}{const} \PYG{k}{struct} \PYG{n}{sockaddr} \PYG{n}{FAR}\PYG{o}{*} \PYG{n}{saddr}\PYG{p}{,} \PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{f}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{unsigned} \PYG{n}{f\PYGZus{}sz} \PYG{o}{=} \PYG{n}{get\PYGZus{}file\PYGZus{}size}\PYG{p}{(}\PYG{n}{f}\PYG{p}{);}
+    \PYG{k+kt}{unsigned} \PYG{n}{optlen} \PYG{o}{=} \PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{unsigned}\PYG{p}{);}
+    \PYG{k+kt}{unsigned} \PYG{n}{optval}\PYG{p}{;}
+    \PYG{n}{getsockopt}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{n}{SOL\PYGZus{}SOCKET}\PYG{p}{,} \PYG{n}{SO\PYGZus{}MAX\PYGZus{}MSG\PYGZus{}SIZE}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{)}\PYG{o}{\PYGZam{}} \PYG{n}{optval}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{int}\PYG{o}{*}\PYG{p}{)}\PYG{o}{\PYGZam{}}\PYG{n}{optlen}\PYG{p}{);}
+    \PYG{k+kt}{unsigned} \PYG{n}{buf\PYGZus{}sz} \PYG{o}{=} \PYG{n}{optval}\PYG{p}{;}
+    \PYG{k+kt}{unsigned} \PYG{n}{full\PYGZus{}packet\PYGZus{}num} \PYG{o}{=} \PYG{n}{f\PYGZus{}sz} \PYG{o}{/} \PYG{n}{buf\PYGZus{}sz}\PYG{p}{;}
+    \PYG{k+kt}{unsigned} \PYG{n}{last\PYGZus{}packet\PYGZus{}sz} \PYG{o}{=} \PYG{n}{f\PYGZus{}sz} \PYG{o}{\PYGZpc{}} \PYG{n}{buf\PYGZus{}sz}\PYG{p}{;}
+    \PYG{k+kt}{unsigned} \PYG{n}{packet\PYGZus{}num} \PYG{o}{=} \PYG{n}{full\PYGZus{}packet\PYGZus{}num} \PYG{o}{+} \PYG{p}{(}\PYG{n}{last\PYGZus{}packet\PYGZus{}sz} \PYG{o}{!=} \PYG{l+m+mi}{0} \PYG{o}{?} \PYG{l+m+mi}{1} \PYG{o}{:} \PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}File size: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{f\PYGZus{}sz} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} bytes\PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}Max data size in packet: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{buf\PYGZus{}sz} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} bytes\PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}Will be sent: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{full\PYGZus{}packet\PYGZus{}num} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} full packets\PYGZdq{}}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{last\PYGZus{}packet\PYGZus{}sz} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} and 1 incomplete packet of \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{last\PYGZus{}packet\PYGZus{}sz} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{} bytes\PYGZdq{}}\PYG{p}{;}
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+
+    \PYG{n}{first\PYGZus{}packet} \PYG{n}{fp}\PYG{p}{;}
+    \PYG{n}{fp}\PYG{p}{.}\PYG{n}{file\PYGZus{}sz} \PYG{o}{=} \PYG{n}{f\PYGZus{}sz}\PYG{p}{;}
+    \PYG{n}{fp}\PYG{p}{.}\PYG{n}{max\PYGZus{}buf\PYGZus{}sz} \PYG{o}{=} \PYG{n}{buf\PYGZus{}sz}\PYG{p}{;}
+    \PYG{n}{fp}\PYG{p}{.}\PYG{n}{full\PYGZus{}packet\PYGZus{}num} \PYG{o}{=} \PYG{n}{full\PYGZus{}packet\PYGZus{}num}\PYG{p}{;}
+    \PYG{n}{fp}\PYG{p}{.}\PYG{n}{last\PYGZus{}packet\PYGZus{}size} \PYG{o}{=} \PYG{n}{last\PYGZus{}packet\PYGZus{}sz}\PYG{p}{;}
+    \PYG{n}{sendto}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{)}\PYG{o}{\PYGZam{}} \PYG{n}{fp}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{fp}\PYG{p}{),} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{saddr}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{SOCKADDR\PYGZus{}IPX}\PYG{p}{));}
+    \PYG{k+kt}{char}\PYG{o}{**} \PYG{n}{buf}\PYG{p}{;}
+    \PYG{n}{buf} \PYG{o}{=} \PYG{n}{new} \PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{[}\PYG{n}{packet\PYGZus{}num}\PYG{p}{];}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{packet\PYGZus{}num}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+        \PYG{n}{buf}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{new} \PYG{k+kt}{char}\PYG{p}{[}\PYG{n}{buf\PYGZus{}sz}\PYG{p}{];}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{full\PYGZus{}packet\PYGZus{}num}\PYG{p}{;} \PYG{n}{i} \PYG{o}{++}\PYG{p}{)}
+        \PYG{n}{fread}\PYG{p}{(}\PYG{n}{buf}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{buf\PYGZus{}sz}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{f}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{last\PYGZus{}packet\PYGZus{}sz} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)}
+        \PYG{n}{fread}\PYG{p}{(}\PYG{n}{buf}\PYG{p}{[}\PYG{n}{full\PYGZus{}packet\PYGZus{}num}\PYG{p}{],} \PYG{n}{last\PYGZus{}packet\PYGZus{}sz}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{f}\PYG{p}{);}
+    \PYG{n}{Sleep}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{);}
+
+    \PYG{k+kt}{float} \PYG{n}{progress\PYGZus{}step} \PYG{o}{=} \PYG{l+m+mf}{70.0} \PYG{o}{/} \PYG{n}{packet\PYGZus{}num}\PYG{p}{;}
+    \PYG{k+kt}{float} \PYG{n}{step\PYGZus{}count} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{full\PYGZus{}packet\PYGZus{}num} \PYG{p}{;} \PYG{n}{i} \PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{sendto}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{n}{buf}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{buf\PYGZus{}sz}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{saddr}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{SOCKADDR\PYGZus{}IPX}\PYG{p}{));}
+        \PYG{n}{step\PYGZus{}count} \PYG{o}{+=} \PYG{n}{progress\PYGZus{}step}\PYG{p}{;}
+        \PYG{k}{while}\PYG{p}{(}\PYG{n}{step\PYGZus{}count} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{k+kt}{char}\PYG{p}{(}\PYG{l+m+mi}{219}\PYG{p}{);}
+            \PYG{n}{step\PYGZus{}count}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k+kt}{int} \PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{1000}\PYG{p}{;}
+        \PYG{k}{while}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{);} 
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{last\PYGZus{}packet\PYGZus{}sz} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{sendto}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{n}{buf}\PYG{p}{[}\PYG{n}{full\PYGZus{}packet\PYGZus{}num}\PYG{p}{],} \PYG{n}{last\PYGZus{}packet\PYGZus{}sz}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{saddr}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{SOCKADDR\PYGZus{}IPX}\PYG{p}{));}
+        \PYG{n}{step\PYGZus{}count} \PYG{o}{+=} \PYG{n}{progress\PYGZus{}step}\PYG{p}{;}
+        \PYG{k}{while}\PYG{p}{(}\PYG{n}{step\PYGZus{}count} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{k+kt}{char}\PYG{p}{(}\PYG{l+m+mi}{219}\PYG{p}{);}
+            \PYG{n}{step\PYGZus{}count}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{packet\PYGZus{}num}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+        \PYG{n}{delete} \PYG{n}{buf}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{n}{delete} \PYG{n}{buf}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{err}\PYG{p}{;}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{initWSA}\PYG{p}{())}
+        \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{SOCKET} \PYG{n}{s}\PYG{p}{;}
+    \PYG{k+kt}{unsigned} \PYG{k+kt}{short} \PYG{n}{socketID\PYGZus{}svr} \PYG{o}{=} \PYG{l+m+mh}{0x4444}\PYG{p}{,} \PYG{n}{socketID\PYGZus{}clt} \PYG{o}{=} \PYG{l+m+mh}{0x4445}\PYG{p}{;}
+    \PYG{n}{s} \PYG{o}{=} \PYG{n}{socket}\PYG{p}{(}\PYG{n}{AF\PYGZus{}IPX}\PYG{p}{,} \PYG{n}{SOCK\PYGZus{}DGRAM}\PYG{p}{,} \PYG{n}{NSPROTO\PYGZus{}IPX}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{s} \PYG{o}{==} \PYG{n}{INVALID\PYGZus{}SOCKET}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}Socket creation failed with error: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{WSAGetLastError}\PYG{p}{()} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{closeWSA}\PYG{p}{())}
+            \PYG{k}{return} \PYG{l+m+mi}{12}\PYG{p}{;}
+        \PYG{k}{return} \PYG{l+m+mi}{2}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{SOCKADDR\PYGZus{}IPX} \PYG{n}{svr\PYGZus{}adr}\PYG{p}{,} \PYG{n}{clt\PYGZus{}adr}\PYG{p}{;}
+    \PYG{n}{svr\PYGZus{}adr}\PYG{p}{.}\PYG{n}{sa\PYGZus{}family} \PYG{o}{=} \PYG{n}{AF\PYGZus{}IPX}\PYG{p}{;}
+    \PYG{n}{svr\PYGZus{}adr}\PYG{p}{.}\PYG{n}{sa\PYGZus{}socket} \PYG{o}{=} \PYG{n}{htons}\PYG{p}{(}\PYG{n}{socketID\PYGZus{}svr}\PYG{p}{);}
+    \PYG{n}{bind}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{p}{(}\PYG{n}{sockaddr}\PYG{o}{*}\PYG{p}{)}\PYG{o}{\PYGZam{}} \PYG{n}{svr\PYGZus{}adr}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{SOCKADDR\PYGZus{}IPX}\PYG{p}{));}
+    \PYG{n}{clt\PYGZus{}adr}\PYG{p}{.}\PYG{n}{sa\PYGZus{}family} \PYG{o}{=} \PYG{n}{AF\PYGZus{}IPX}\PYG{p}{;}
+    \PYG{n}{clt\PYGZus{}adr}\PYG{p}{.}\PYG{n}{sa\PYGZus{}socket} \PYG{o}{=} \PYG{n}{htons}\PYG{p}{(}\PYG{n}{socketID\PYGZus{}clt}\PYG{p}{);}
+    \PYG{n}{memset}\PYG{p}{(}\PYG{n}{clt\PYGZus{}adr}\PYG{p}{.}\PYG{n}{sa\PYGZus{}netnum}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{);}       
+    \PYG{n}{memset}\PYG{p}{(}\PYG{n}{clt\PYGZus{}adr}\PYG{p}{.}\PYG{n}{sa\PYGZus{}nodenum}\PYG{p}{,} \PYG{l+m+mh}{0xFF}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{);}    
+    \PYG{k+kt}{int} \PYG{n}{set\PYGZus{}broadcast} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{setsockopt}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{n}{SOL\PYGZus{}SOCKET}\PYG{p}{,} \PYG{n}{SO\PYGZus{}BROADCAST}\PYG{p}{,} \PYG{p}{(}\PYG{k+kt}{char}\PYG{o}{*}\PYG{p}{)}\PYG{o}{\PYGZam{}} \PYG{n}{set\PYGZus{}broadcast}\PYG{p}{,} \PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{set\PYGZus{}broadcast}\PYG{p}{));}
+
+    \PYG{n}{string} \PYG{n}{f\PYGZus{}name}\PYG{p}{;}
+    \PYG{n}{f\PYGZus{}name} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}test\PYGZus{}img.jpg\PYGZdq{}}\PYG{p}{;}
+    \PYG{k+kt}{FILE} \PYG{o}{*}\PYG{n}{f\PYGZus{}in} \PYG{o}{=} \PYG{n}{fopen}\PYG{p}{(}\PYG{n}{f\PYGZus{}name}\PYG{p}{.}\PYG{n}{c\PYGZus{}str}\PYG{p}{(),} \PYG{l+s}{\PYGZdq{}rb\PYGZdq{}}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{f\PYGZus{}in} \PYG{o}{==} \PYG{n+nb}{NULL}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}Unable to open file }\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{f\PYGZus{}name} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s}{\PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+        \PYG{k}{return} \PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}Press any key to start transmission\PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+    \PYG{n}{getchar}\PYG{p}{();}
+    \PYG{n}{sendFile}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,} \PYG{p}{(}\PYG{n}{sockaddr}\PYG{o}{*}\PYG{p}{)}\PYG{o}{\PYGZam{}} \PYG{n}{clt\PYGZus{}adr}\PYG{p}{,} \PYG{n}{f\PYGZus{}in}\PYG{p}{);}    
+    \PYG{n}{fclose}\PYG{p}{(}\PYG{n}{f\PYGZus{}in}\PYG{p}{);}
+
+    \PYG{n}{err} \PYG{o}{=} \PYG{n}{closesocket}\PYG{p}{(}\PYG{n}{s}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{err} \PYG{o}{==} \PYG{n}{SOCKET\PYGZus{}ERROR}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}Socket closure failed with error: \PYGZdq{}} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{WSAGetLastError}\PYG{p}{()} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{n}{endl}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{closeWSA}\PYG{p}{())}
+            \PYG{k}{return} \PYG{l+m+mi}{12}\PYG{p}{;}
+        \PYG{k}{return} \PYG{l+m+mi}{2}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{closeWSA}\PYG{p}{())}
+        \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{cout} \PYG{o}{\PYGZlt{}\PYGZlt{}} \PYG{l+s}{\PYGZdq{}Translation complete\PYGZdq{}}\PYG{p}{;}
+    \PYG{n}{getchar}\PYG{p}{();}
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,52 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef MAINWINDOW\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define MAINWINDOW\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QMainWindow\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QMap\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QDebug\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QThreadPool\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QMutex\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QRegExp\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QRegExpValidator\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}scan\PYGZus{}functions.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}define PORT\PYGZus{}EDGE 49151}
+\PYG{n}{QT\PYGZus{}BEGIN\PYGZus{}NAMESPACE}
+\PYG{n}{namespace} \PYG{n}{Ui} \PYG{p}{\PYGZob{}} \PYG{n}{class} \PYG{n}{MainWindow}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+\PYG{n}{QT\PYGZus{}END\PYGZus{}NAMESPACE}
+
+\PYG{n}{class} \PYG{n+nl}{MainWindow} \PYG{p}{:} \PYG{n}{public} \PYG{n}{QMainWindow}
+\PYG{p}{\PYGZob{}}
+    \PYG{n}{Q\PYGZus{}OBJECT}
+
+\PYG{n+nl}{public}\PYG{p}{:}
+    \PYG{n}{MainWindow}\PYG{p}{(}\PYG{n}{QWidget} \PYG{o}{*}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{nullptr}\PYG{p}{);}
+    \PYG{o}{\PYGZti{}}\PYG{n}{MainWindow}\PYG{p}{();}
+    \PYG{c+c1}{//Список портов}
+    \PYG{n}{QMap}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{char}\PYG{o}{\PYGZgt{}} \PYG{n}{ports}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{n}{scan\PYGZus{}running} \PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{c+c1}{//0 \PYGZhy{} сканирование с соединением}
+    \PYG{c+c1}{//1 \PYGZhy{} сканирование с без соединения}
+    \PYG{k+kt}{char} \PYG{n}{scan\PYGZus{}mode} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{steps\PYGZus{}completed} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{QThreadPool} \PYG{n}{threads}\PYG{p}{;}
+    \PYG{n}{QMutex} \PYG{n}{step\PYGZus{}mutex}\PYG{p}{,}\PYG{n}{map\PYGZus{}mutex}\PYG{p}{;}
+\PYG{n}{private} \PYG{n+nl}{slots}\PYG{p}{:}
+    \PYG{k+kt}{void} \PYG{n}{on\PYGZus{}pushButton\PYGZus{}clicked}\PYG{p}{();}
+
+    \PYG{k+kt}{void} \PYG{n+nf}{on\PYGZus{}modeButton1\PYGZus{}clicked}\PYG{p}{();}
+
+    \PYG{k+kt}{void} \PYG{n+nf}{on\PYGZus{}modeButton2\PYGZus{}clicked}\PYG{p}{();}
+
+    \PYG{k+kt}{void} \PYG{n+nf}{on\PYGZus{}result\PYGZus{}thread}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{result\PYGZus{}code}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{port}\PYG{p}{);}
+
+    \PYG{k+kt}{void} \PYG{n+nf}{last\PYGZus{}task\PYGZus{}completed}\PYG{p}{();}
+\PYG{n+nl}{private}\PYG{p}{:}
+    \PYG{n}{Ui}\PYG{o}{::}\PYG{n}{MainWindow} \PYG{o}{*}\PYG{n}{ui}\PYG{p}{;}
+\PYG{n+nl}{signals}\PYG{p}{:}
+    \PYG{k+kt}{void} \PYG{n}{last\PYGZus{}task}\PYG{p}{();}
+\PYG{p}{\PYGZcb{};}
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// MAINWINDOW\PYGZus{}H}
+\end{Verbatim}

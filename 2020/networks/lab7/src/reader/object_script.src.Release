@@ -1,0 +1,15 @@
+release/mail_client.o
+release/main.o
+release/emailaddress.o
+release/mimeattachment.o
+release/mimecontentformatter.o
+release/mimefile.o
+release/mimehtml.o
+release/mimeinlinefile.o
+release/mimemessage.o
+release/mimemultipart.o
+release/mimepart.o
+release/mimetext.o
+release/quotedprintable.o
+release/smtpclient.o
+release/moc_mail_client.o
