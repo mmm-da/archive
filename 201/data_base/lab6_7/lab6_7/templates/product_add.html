@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+    <head>
+        <title>Добавить товар</title>
+        <link rel="stylesheet" href="{% static 'css/info.css' %}">
+        <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    </head>
+    <body>
+        <header class="info_container">
+            <header class="info_header">
+                <h1>Добавить товар</h1>
+            </header>
+            <div class="info_body">
+                <form method="POST">{% csrf_token %}
+                    {{form.as_p}}
+                    <button style="padding-bottom: 1px ;" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </body>

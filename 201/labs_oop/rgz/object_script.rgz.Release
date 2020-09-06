@@ -1,0 +1,13 @@
+release/ApartmentsPanel.o
+release/FrontDoor.o
+release/ApartmentSelect.o
+release/SignalButton.o
+release/LogWindow.o
+release/HousePhone.o
+release/main.o
+release/moc_ApartmentsPanel.o
+release/moc_FrontDoor.o
+release/moc_ApartmentSelect.o
+release/moc_SignalButton.o
+release/moc_LogWindow.o
+release/moc_HousePhone.o

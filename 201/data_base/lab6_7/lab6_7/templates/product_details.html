@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+    <head>
+        <title>Информация о товаре {{product.name}}</title>
+        <link rel="stylesheet" href="{% static 'css/info.css' %}">
+    </head>
+    <body>
+        <header class="info_container">
+            <header class="info_header">
+                <h1>Информация о товаре {{product.name}}</h1>
+            </header>
+            <div class="info_body">
+                <p>
+                    <b>Стоимость за товарную единицу:</b> {{product.price}}
+                </p>
+                <p>
+                    <b>Осталось на складах:</b> {{product.amount}}
+                </p>
+                <p>
+                    <b >Поставщик:</b> <a href="/supplier/{{product.supplier.id}}">{{product.supplier.adress}}</a>
+                </p>
+                <p>
+                    <b>Дата поставки партии:</b> {{product.supply_date}}
+                </p>
+            </div>
+        </div>
+    </body>

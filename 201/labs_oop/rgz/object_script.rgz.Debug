@@ -1,0 +1,13 @@
+debug/ApartmentsPanel.o
+debug/FrontDoor.o
+debug/ApartmentSelect.o
+debug/SignalButton.o
+debug/LogWindow.o
+debug/HousePhone.o
+debug/main.o
+debug/moc_ApartmentsPanel.o
+debug/moc_FrontDoor.o
+debug/moc_ApartmentSelect.o
+debug/moc_SignalButton.o
+debug/moc_LogWindow.o
+debug/moc_HousePhone.o

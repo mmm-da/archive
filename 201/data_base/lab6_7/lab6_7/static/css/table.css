@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(241, 241, 241);
+}
+:not(.table_container) {
+    text-align: center;
+    margin-left: 20px !important;  
+    margin-right: 20px !important;  
+    margin-top: 20px !important;  
+    margin-bottom: 20px !important;
+    font-family: 'Roboto', sans-serif;
+}
+:not(.table_header) {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 0px !important;  
+    padding-bottom: 100px;
+}
+:not(.table_body) {
+    padding-bottom: 10px;
+}
+a:link {
+    background-color: rgb(221, 214, 241);
+    color: rgb(0, 0, 0);
+  }
+
+:not(.table){
+    margin-right: 20px !important;  
+}

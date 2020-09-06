@@ -1,0 +1,10 @@
+body{
+    background-color: rgb(241, 241, 241);
+    text-align: center;
+}
+a:link {
+    
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(221, 214, 241);
+    color: rgb(0, 0, 0);
+  }

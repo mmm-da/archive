@@ -1,0 +1,13 @@
+{
+    "PicScale": 0.6,
+    
+    "LabNum":  8,
+    "Subject": "Компьютерная графика",
+    "Variant": "9",
+    "Theme": "Освещение в OpenGL",
+    "Task": "получить навыки использования освещение в API OpenGL.",
+    "Group": "ВТ-31",
+    "AuthorFIO": "Макаров Д.С.",
+    "LecturerFIO": "Осипов О.В.",
+    "Year": 2019
+}
