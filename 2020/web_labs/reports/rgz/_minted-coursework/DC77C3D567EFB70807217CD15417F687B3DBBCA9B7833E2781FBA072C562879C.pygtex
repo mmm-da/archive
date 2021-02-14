@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{uuid} \PYG{k+kn}{import} \PYG{n}{uuid4}
+\PYG{k+kn}{from} \PYG{n+nn}{django.db} \PYG{k+kn}{import} \PYG{n}{models}
+\PYG{k+kn}{from} \PYG{n+nn}{taggit.managers} \PYG{k+kn}{import} \PYG{n}{TaggableManager}
+
+\PYG{k}{class} \PYG{n+nc}{Storage}\PYG{p}{(}\PYG{n}{models}\PYG{o}{.}\PYG{n}{Model}\PYG{p}{):}
+    \PYG{n+nb}{id} \PYG{o}{=} \PYG{n}{models}\PYG{o}{.}\PYG{n}{UUIDField}\PYG{p}{(}\PYG{n}{primary\PYGZus{}key}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{default}\PYG{o}{=}\PYG{n}{uuid4}\PYG{p}{,} \PYG{n}{editable}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
+    \PYG{n}{name} \PYG{o}{=} \PYG{n}{models}\PYG{o}{.}\PYG{n}{CharField}\PYG{p}{(}\PYG{n}{max\PYGZus{}length}\PYG{o}{=}\PYG{l+m+mi}{128}\PYG{p}{)}
+    \PYG{n}{owner} \PYG{o}{=} \PYG{n}{models}\PYG{o}{.}\PYG{n}{ForeignKey}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}auth.User\PYGZsq{}}\PYG{p}{,}\PYG{n}{related\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}storages\PYGZsq{}}\PYG{p}{,}\PYG{n}{on\PYGZus{}delete}\PYG{o}{=}\PYG{n}{models}\PYG{o}{.}\PYG{n}{CASCADE}\PYG{p}{)}
+    \PYG{n}{tags} \PYG{o}{=} \PYG{n}{TaggableManager}\PYG{p}{()}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}str\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{k}{return} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb}{id}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{Section}\PYG{p}{(}\PYG{n}{models}\PYG{o}{.}\PYG{n}{Model}\PYG{p}{):}
+    \PYG{n+nb}{id} \PYG{o}{=} \PYG{n}{models}\PYG{o}{.}\PYG{n}{UUIDField}\PYG{p}{(}\PYG{n}{primary\PYGZus{}key}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{default}\PYG{o}{=}\PYG{n}{uuid4}\PYG{p}{,} \PYG{n}{editable}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
+    \PYG{n}{name} \PYG{o}{=} \PYG{n}{models}\PYG{o}{.}\PYG{n}{CharField}\PYG{p}{(}\PYG{n}{max\PYGZus{}length}\PYG{o}{=}\PYG{l+m+mi}{128}\PYG{p}{)}
+    \PYG{n}{storage} \PYG{o}{=} \PYG{n}{models}\PYG{o}{.}\PYG{n}{ForeignKey}\PYG{p}{(}
+        \PYG{l+s+s1}{\PYGZsq{}Storage\PYGZsq{}}\PYG{p}{,}
+        \PYG{n}{related\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}sections\PYGZsq{}}\PYG{p}{,}
+        \PYG{n}{on\PYGZus{}delete}\PYG{o}{=}\PYG{n}{models}\PYG{o}{.}\PYG{n}{CASCADE}
+    \PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}str\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{k}{return} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb}{id}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,64 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{import} \PYG{n+nx}{React} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}react\PYGZsq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{Redirect}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}react\PYGZhy{}router\PYGZhy{}dom\PYGZsq{}}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{useForm}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZhy{}hook\PYGZhy{}form\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{useAuth}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}../../useAuth\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{Spinner}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}../Spinner/Spinner\PYGZdq{}}\PYG{p}{;}
+
+\PYG{k+kr}{export} \PYG{k}{default} \PYG{k+kd}{function} \PYG{n+nx}{LoginForm}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k+kr}{const} \PYG{p}{\PYGZob{}}\PYG{n+nx}{register}\PYG{p}{,} \PYG{n+nx}{errors}\PYG{p}{,} \PYG{n+nx}{handleSubmit}\PYG{p}{\PYGZcb{}} \PYG{o}{=} \PYG{n+nx}{useForm}\PYG{p}{();}
+    \PYG{k+kr}{const} \PYG{n+nx}{auth} \PYG{o}{=} \PYG{n+nx}{useAuth}\PYG{p}{();}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{onSubmit} \PYG{o}{=} \PYG{n+nx}{data} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{setLoginStatus}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginNone\PYGZsq{}}\PYG{p}{);}
+        \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{login}\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{username}\PYG{p}{,} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{password}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{formBody} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{form} \PYG{n+nx}{onSubmit}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{handleSubmit}\PYG{p}{(}\PYG{n+nx}{onSubmit}\PYG{p}{)\PYGZcb{}}\PYG{o}{\PYGZgt{}}
+        \PYG{p}{\PYGZob{}}\PYG{n+nx}{errors}\PYG{p}{.}\PYG{n+nx}{username} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{p} \PYG{n+nx}{className}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}form\PYGZhy{}error\PYGZsq{}}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{n+nx}{errors}\PYG{p}{.}\PYG{n+nx}{username}\PYG{p}{.}\PYG{n+nx}{message}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZlt{}}\PYG{err}{/p\PYGZgt{}\PYGZcb{}}
+        \PYG{p}{\PYGZob{}}\PYG{n+nx}{errors}\PYG{p}{.}\PYG{n+nx}{password} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{p} \PYG{n+nx}{className}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}form\PYGZhy{}error\PYGZsq{}}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{n+nx}{errors}\PYG{p}{.}\PYG{n+nx}{password}\PYG{p}{.}\PYG{n+nx}{message}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZlt{}}\PYG{err}{/p\PYGZgt{}\PYGZcb{}}
+        \PYG{o}{\PYGZlt{}}\PYG{n+nx}{div} \PYG{n+nx}{className}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}form\PYGZhy{}input\PYGZdq{}}\PYG{o}{\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{n+nx}{p}\PYG{o}{\PYGZgt{}}\PYG{n+nx}{Имя} \PYG{n+nx}{пользователя}\PYG{o}{\PYGZlt{}}\PYG{err}{/p\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{n+nx}{input}
+                \PYG{n+nx}{name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}username\PYGZsq{}}
+                \PYG{n+nx}{autoComplete}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}username\PYGZsq{}}
+                \PYG{n+nx}{ref}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{register}\PYG{p}{(\PYGZob{}}
+                    \PYG{n+nx}{required}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}Без имени не получится.\PYGZdq{}}
+                \PYG{p}{\PYGZcb{})\PYGZcb{}}
+            \PYG{o}{/\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{n+nx}{p}\PYG{o}{\PYGZgt{}}\PYG{n+nx}{Пароль}\PYG{o}{\PYGZlt{}}\PYG{err}{/p\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{n+nx}{input}
+                \PYG{n+nx}{name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}password\PYGZsq{}}
+                \PYG{n+nx}{type}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}password\PYGZdq{}}
+                \PYG{n+nx}{autoComplete}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}current\PYGZhy{}password\PYGZsq{}}
+                \PYG{n+nx}{ref}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{register}\PYG{p}{(\PYGZob{}}
+                    \PYG{n+nx}{required}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}Пароль нужно ввести.\PYGZdq{}}
+                \PYG{p}{\PYGZcb{})\PYGZcb{}}
+            \PYG{o}{/\PYGZgt{}}
+        \PYG{o}{\PYGZlt{}}\PYG{err}{/div\PYGZgt{}}
+        \PYG{o}{\PYGZlt{}}\PYG{n+nx}{button} \PYG{n+nx}{type}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}submit\PYGZdq{}}\PYG{o}{\PYGZgt{}}\PYG{n+nx}{Войти}\PYG{o}{\PYGZlt{}}\PYG{err}{/button\PYGZgt{}}
+    \PYG{o}{\PYGZlt{}}\PYG{err}{/form\PYGZgt{};}
+
+    \PYG{k}{switch} \PYG{p}{(}\PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{loginStatus}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{case}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginWait\PYGZsq{}}\PYG{p}{)}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{p}{(}
+                \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Spinner} \PYG{n+nx}{spinnerSize}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}medium\PYGZsq{}}\PYG{o}{/\PYGZgt{}}
+            \PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{case}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginError\PYGZsq{}}\PYG{p}{)}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{p}{(}
+                \PYG{o}{\PYGZlt{}\PYGZgt{}}
+                    \PYG{o}{\PYGZlt{}}\PYG{n+nx}{p} \PYG{n+nx}{className}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}form\PYGZhy{}error\PYGZsq{}}\PYG{o}{\PYGZgt{}}\PYG{n+nx}{Неверный} \PYG{n+nx}{логин} \PYG{n+nx}{или} \PYG{n+nx}{пароль}\PYG{o}{\PYGZlt{}}\PYG{err}{/p\PYGZgt{}}
+                    \PYG{p}{\PYGZob{}}\PYG{n+nx}{formBody}\PYG{p}{\PYGZcb{}}
+                \PYG{o}{\PYGZlt{}}\PYG{err}{/\PYGZgt{}}
+            \PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{case}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginNone\PYGZsq{}}\PYG{p}{)}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{n+nx}{formBody}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZlt{}}\PYG{err}{/\PYGZgt{};}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{case}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginSuccess\PYGZsq{}}\PYG{p}{)}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Redirect} \PYG{n+nx}{to}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}/\PYGZsq{}}\PYG{o}{/\PYGZgt{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

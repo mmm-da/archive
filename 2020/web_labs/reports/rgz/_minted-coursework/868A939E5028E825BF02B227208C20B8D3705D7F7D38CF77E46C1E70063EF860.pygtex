@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{rest\PYGZus{}framework} \PYG{k+kn}{import} \PYG{n}{serializers}
+\PYG{k+kn}{from} \PYG{n+nn}{storages.models} \PYG{k+kn}{import} \PYG{n}{Storage}\PYG{p}{,}\PYG{n}{Section}
+\PYG{k+kn}{from} \PYG{n+nn}{things.models} \PYG{k+kn}{import} \PYG{n}{ThingInstance}
+\PYG{k+kn}{from} \PYG{n+nn}{taggit\PYGZus{}serializer.serializers} \PYG{k+kn}{import} \PYG{p}{(}\PYG{n}{TagListSerializerField}\PYG{p}{,}
+                                           \PYG{n}{TaggitSerializer}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{StorageSerializer}\PYG{p}{(}\PYG{n}{TaggitSerializer}\PYG{p}{,}\PYG{n}{serializers}\PYG{o}{.}\PYG{n}{ModelSerializer}\PYG{p}{,):}
+    \PYG{n}{tags} \PYG{o}{=} \PYG{n}{TagListSerializerField}\PYG{p}{()}
+    \PYG{n}{sections} \PYG{o}{=} \PYG{n}{serializers}\PYG{o}{.}\PYG{n}{PrimaryKeyRelatedField}\PYG{p}{(}\PYG{n}{many}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{queryset}\PYG{o}{=}\PYG{n}{Section}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{())}
+    \PYG{n}{owner} \PYG{o}{=} \PYG{n}{serializers}\PYG{o}{.}\PYG{n}{ReadOnlyField}\PYG{p}{(}\PYG{n}{source}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}owner.username\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{class} \PYG{n+nc}{Meta}\PYG{p}{:}
+        \PYG{n}{model} \PYG{o}{=} \PYG{n}{Storage}
+        \PYG{n}{fields} \PYG{o}{=} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}id\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}name\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}owner\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}sections\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}tags\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{SectionSerializer}\PYG{p}{(}\PYG{n}{serializers}\PYG{o}{.}\PYG{n}{ModelSerializer}\PYG{p}{):}
+    \PYG{n}{things\PYGZus{}in\PYGZus{}sections} \PYG{o}{=} \PYG{n}{serializers}\PYG{o}{.}\PYG{n}{PrimaryKeyRelatedField}\PYG{p}{(}\PYG{n}{many}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,}\PYG{n}{queryset}\PYG{o}{=}\PYG{n}{ThingInstance}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{())}
+    \PYG{k}{class} \PYG{n+nc}{Meta}\PYG{p}{:}
+        \PYG{n}{model} \PYG{o}{=} \PYG{n}{Section}
+        \PYG{n}{fields} \PYG{o}{=} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}id\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}name\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}storage\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}things\PYGZus{}in\PYGZus{}sections\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{things.models} \PYG{k+kn}{import} \PYG{n}{Thing}\PYG{p}{,}\PYG{n}{ThingInstance}\PYG{p}{,}\PYG{n}{ThingCategory}
+\PYG{k+kn}{from} \PYG{n+nn}{things.serializers} \PYG{k+kn}{import} \PYG{n}{ThingSerializer}\PYG{p}{,}\PYG{n}{ThingInstanceSerializer}\PYG{p}{,}\PYG{n}{ThingCategorySerializer}
+\PYG{k+kn}{from} \PYG{n+nn}{rest\PYGZus{}framework.viewsets} \PYG{k+kn}{import} \PYG{n}{ModelViewSet}
+\PYG{k+kn}{from} \PYG{n+nn}{rest\PYGZus{}framework.permissions} \PYG{k+kn}{import} \PYG{n}{IsAuthenticated}
+
+\PYG{k}{class} \PYG{n+nc}{ThingViewset}\PYG{p}{(}\PYG{n}{ModelViewSet}\PYG{p}{):}
+    \PYG{n}{queryset} \PYG{o}{=} \PYG{n}{Thing}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{()}
+    \PYG{n}{serializer\PYGZus{}class} \PYG{o}{=} \PYG{n}{ThingSerializer}
+
+    \PYG{n}{permission\PYGZus{}classes} \PYG{o}{=} \PYG{p}{(}\PYG{n}{IsAuthenticated}\PYG{p}{,)}
+
+
+\PYG{k}{class} \PYG{n+nc}{ThingInstanceViewset}\PYG{p}{(}\PYG{n}{ModelViewSet}\PYG{p}{):}
+    \PYG{n}{queryset} \PYG{o}{=} \PYG{n}{ThingInstance}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{()}
+    \PYG{n}{serializer\PYGZus{}class} \PYG{o}{=} \PYG{n}{ThingInstanceSerializer}
+
+    \PYG{n}{permission\PYGZus{}classes} \PYG{o}{=} \PYG{p}{(}\PYG{n}{IsAuthenticated}\PYG{p}{,)}
+
+\PYG{k}{class} \PYG{n+nc}{ThingCategoryViewset}\PYG{p}{(}\PYG{n}{ModelViewSet}\PYG{p}{):}
+    \PYG{n}{queryset} \PYG{o}{=} \PYG{n}{ThingCategory}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{()}
+    \PYG{n}{serializer\PYGZus{}class} \PYG{o}{=} \PYG{n}{ThingCategorySerializer}
+
+    \PYG{n}{permission\PYGZus{}classes} \PYG{o}{=} \PYG{p}{(}\PYG{n}{IsAuthenticated}\PYG{p}{,)}
+\end{Verbatim}

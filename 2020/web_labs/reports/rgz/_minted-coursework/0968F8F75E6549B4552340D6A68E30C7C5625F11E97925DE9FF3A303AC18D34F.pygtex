@@ -1,0 +1,230 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{import} \PYG{n+nx}{React}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{n+nx}{createContext}\PYG{p}{,} \PYG{n+nx}{useContext}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{baseUrl} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}./constants\PYGZsq{}}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{useAuth}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}./useAuth\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{axios} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}axios\PYGZsq{}}
+
+\PYG{k+kr}{const} \PYG{n+nx}{apiContext} \PYG{o}{=} \PYG{n+nx}{createContext}\PYG{p}{();}
+
+\PYG{k+kr}{export} \PYG{k+kd}{function} \PYG{n+nx}{ProvideApi}\PYG{p}{(\PYGZob{}}\PYG{n+nx}{children}\PYG{p}{\PYGZcb{})} \PYG{p}{\PYGZob{}}
+    \PYG{k+kr}{const} \PYG{n+nx}{auth} \PYG{o}{=} \PYG{n+nx}{useProvideApi}\PYG{p}{();}
+    \PYG{k}{return} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{apiContext}\PYG{p}{.}\PYG{n+nx}{Provider} \PYG{n+nx}{value}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{auth}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{n+nx}{children}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZlt{}}\PYG{err}{/apiContext.Provider\PYGZgt{};}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kr}{export} \PYG{k+kr}{const} \PYG{n+nx}{useApi} \PYG{o}{=} \PYG{p}{()} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n+nx}{useContext}\PYG{p}{(}\PYG{n+nx}{apiContext}\PYG{p}{);}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kd}{function} \PYG{n+nx}{useProvideApi}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k+kr}{const} \PYG{n+nx}{auth} \PYG{o}{=} \PYG{n+nx}{useAuth}\PYG{p}{();}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getThing} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{uuid}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/things/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{uuid}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+            \PYG{k+kr}{const} \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{;}
+            \PYG{k}{return} \PYG{n+nx}{data}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getStorage} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{uuid}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/storages/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{uuid}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+            \PYG{k+kr}{const} \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{;}
+            \PYG{k}{return} \PYG{n+nx}{data}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{postStorage} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{name}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k+kr}{const} \PYG{n+nx}{username} \PYG{o}{=} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{user}\PYG{p}{.}\PYG{n+nx}{username}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}post\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/storages/`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{},}
+                \PYG{n+nx}{data}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                   \PYG{n+nx}{name}\PYG{o}{:} \PYG{n+nx}{name}\PYG{p}{,}
+                   \PYG{n+nx}{owner}\PYG{o}{:} \PYG{n+nx}{username}\PYG{p}{,}
+                   \PYG{n+nx}{sections}\PYG{o}{:} \PYG{p}{[],}
+                   \PYG{n+nx}{tags}\PYG{o}{:} \PYG{p}{[]}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+        \PYG{p}{\PYGZcb{}}\PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{patchStorageName} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{uuid}\PYG{p}{,}\PYG{n+nx}{name}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}patch\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/storages/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{uuid}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{/`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{},}
+                \PYG{n+nx}{data}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{name}\PYG{o}{:} \PYG{n+nx}{name}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+        \PYG{p}{\PYGZcb{}}\PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{deleteStorage} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{uuid}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}delete\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/storages/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{uuid}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{/`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{},}
+            \PYG{p}{\PYGZcb{}).}\PYG{n+nx}{then}\PYG{p}{(}
+                \PYG{n+nx}{async} \PYG{p}{()=\PYGZgt{}\PYGZob{}}
+                    \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{updateUser}\PYG{p}{()}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}\PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getSection} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{uuid}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/sections/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{uuid}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+            \PYG{k+kr}{const} \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{;}
+            \PYG{k}{return} \PYG{n+nx}{data}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getInstance} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{uuid}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/instances/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{uuid}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+            \PYG{k+kr}{const} \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{;}
+            \PYG{k}{return} \PYG{n+nx}{data}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getCategory} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{uuid}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/category/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{uuid}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{accessToken}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+            \PYG{k}{return} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{postThing} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{name}\PYG{p}{,}\PYG{n+nx}{description}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}post\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/things/`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{},}
+                \PYG{n+nx}{data}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{category}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{,}
+                    \PYG{n+nx}{name}\PYG{o}{:} \PYG{n+nx}{name}\PYG{p}{,}
+                    \PYG{n+nx}{description}\PYG{o}{:} \PYG{n+nx}{description}\PYG{p}{,}
+                    \PYG{n+nx}{tags}\PYG{o}{:} \PYG{p}{[],}
+                    \PYG{n+nx}{things\PYGZus{}instances}\PYG{o}{:} \PYG{p}{[]}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{postInstance} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{count}\PYG{p}{,}\PYG{n+nx}{thing}\PYG{p}{,}\PYG{n+nx}{section}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}post\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/instance/`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{},}
+                \PYG{n+nx}{data}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{count}\PYG{o}{:} \PYG{n+nx}{count}\PYG{p}{,}
+                    \PYG{n+nx}{type}\PYG{o}{:} \PYG{n+nx}{thing}\PYG{p}{,}
+                    \PYG{n+nx}{section}\PYG{o}{:} \PYG{n+nx}{section}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getThings} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{()} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/things/`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+            \PYG{k+kr}{const} \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}
+            \PYG{k}{return} \PYG{n+nx}{data}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+
+    \PYG{k}{return} \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{getStorage}\PYG{p}{,}
+        \PYG{n+nx}{postStorage}\PYG{p}{,}
+        \PYG{n+nx}{patchStorageName}\PYG{p}{,}
+        \PYG{n+nx}{deleteStorage}\PYG{p}{,}
+        \PYG{n+nx}{getSection}\PYG{p}{,}
+        \PYG{n+nx}{getInstance}\PYG{p}{,}
+        \PYG{n+nx}{getThing}\PYG{p}{,}
+        \PYG{n+nx}{postThing}\PYG{p}{,}
+        \PYG{n+nx}{postInstance}\PYG{p}{,}
+        \PYG{n+nx}{getThings}
+    \PYG{p}{\PYGZcb{};}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

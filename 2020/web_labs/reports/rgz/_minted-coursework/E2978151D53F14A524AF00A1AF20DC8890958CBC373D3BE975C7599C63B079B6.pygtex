@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{django.conf.urls} \PYG{k+kn}{import} \PYG{n}{url}\PYG{p}{,} \PYG{n}{include}
+\PYG{k+kn}{from} \PYG{n+nn}{django.urls} \PYG{k+kn}{import} \PYG{n}{path}
+\PYG{k+kn}{from} \PYG{n+nn}{storages} \PYG{k+kn}{import} \PYG{n}{views} \PYG{k}{as} \PYG{n}{storages\PYGZus{}views}
+\PYG{k+kn}{from} \PYG{n+nn}{users} \PYG{k+kn}{import} \PYG{n}{views} \PYG{k}{as} \PYG{n}{users\PYGZus{}views}
+\PYG{k+kn}{from} \PYG{n+nn}{things} \PYG{k+kn}{import} \PYG{n}{views} \PYG{k}{as} \PYG{n}{things\PYGZus{}views}
+\PYG{k+kn}{from} \PYG{n+nn}{rest\PYGZus{}framework.routers} \PYG{k+kn}{import} \PYG{n}{DefaultRouter}
+\PYG{k+kn}{from} \PYG{n+nn}{rest\PYGZus{}framework.urlpatterns} \PYG{k+kn}{import} \PYG{n}{format\PYGZus{}suffix\PYGZus{}patterns}
+\PYG{k+kn}{from} \PYG{n+nn}{drf\PYGZus{}spectacular.views} \PYG{k+kn}{import} \PYG{n}{SpectacularAPIView}\PYG{p}{,} \PYG{n}{SpectacularRedocView}\PYG{p}{,} \PYG{n}{SpectacularSwaggerView}
+
+\PYG{n}{router} \PYG{o}{=} \PYG{n}{DefaultRouter}\PYG{p}{()}
+\PYG{n}{router}\PYG{o}{.}\PYG{n}{register}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}storages\PYGZsq{}}\PYG{p}{,} \PYG{n}{storages\PYGZus{}views}\PYG{o}{.}\PYG{n}{StorageViewset}\PYG{p}{)}
+\PYG{n}{router}\PYG{o}{.}\PYG{n}{register}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}sections\PYGZsq{}}\PYG{p}{,} \PYG{n}{storages\PYGZus{}views}\PYG{o}{.}\PYG{n}{SectionViewset}\PYG{p}{)}
+\PYG{n}{router}\PYG{o}{.}\PYG{n}{register}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}things\PYGZsq{}}\PYG{p}{,} \PYG{n}{things\PYGZus{}views}\PYG{o}{.}\PYG{n}{ThingViewset}\PYG{p}{)}
+\PYG{n}{router}\PYG{o}{.}\PYG{n}{register}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}instances\PYGZsq{}}\PYG{p}{,} \PYG{n}{things\PYGZus{}views}\PYG{o}{.}\PYG{n}{ThingInstanceViewset}\PYG{p}{)}
+\PYG{n}{router}\PYG{o}{.}\PYG{n}{register}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}category\PYGZsq{}}\PYG{p}{,} \PYG{n}{things\PYGZus{}views}\PYG{o}{.}\PYG{n}{ThingCategoryViewset}\PYG{p}{)}
+\PYG{n}{router}\PYG{o}{.}\PYG{n}{register}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}users\PYGZsq{}}\PYG{p}{,} \PYG{n}{users\PYGZus{}views}\PYG{o}{.}\PYG{n}{UserViewset}\PYG{p}{)}
+
+\PYG{n}{urlpatterns} \PYG{o}{=} \PYG{p}{[}
+    \PYG{n}{url}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}\PYGZca{}api/\PYGZsq{}}\PYG{p}{,} \PYG{n}{include}\PYG{p}{(}\PYG{n}{router}\PYG{o}{.}\PYG{n}{urls}\PYG{p}{)),}
+    \PYG{n}{url}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}\PYGZca{}auth/\PYGZsq{}}\PYG{p}{,}\PYG{n}{include}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}djoser.urls\PYGZsq{}}\PYG{p}{)),}
+    \PYG{n}{url}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}\PYGZca{}auth/\PYGZsq{}}\PYG{p}{,}\PYG{n}{include}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}djoser.urls.jwt\PYGZsq{}}\PYG{p}{)),}
+    \PYG{n}{path}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}api/schema/\PYGZsq{}}\PYG{p}{,} \PYG{n}{SpectacularAPIView}\PYG{o}{.}\PYG{n}{as\PYGZus{}view}\PYG{p}{(),} \PYG{n}{name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}schema\PYGZsq{}}\PYG{p}{),}
+    \PYG{n}{path}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}api/schema/redoc/\PYGZsq{}}\PYG{p}{,} \PYG{n}{SpectacularRedocView}\PYG{o}{.}\PYG{n}{as\PYGZus{}view}\PYG{p}{(}\PYG{n}{url\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}schema\PYGZsq{}}\PYG{p}{),} \PYG{n}{name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}redoc\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{]}   
+\end{Verbatim}

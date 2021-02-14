@@ -1,0 +1,3 @@
+[submodule "korobasy"]
+	path = korobasy
+	url = https://github.com/spam25/korobasy

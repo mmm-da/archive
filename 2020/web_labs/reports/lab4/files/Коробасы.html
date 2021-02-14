@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://192.168.1.76:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Коробасы</title>
+    <link href="./Коробасы_files/css2" rel="stylesheet">
+  <style type="text/css">.navbar{
+    display: flex;
+    align-items: center;
+    
+    height: 80px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.navbar-item{
+    color: #3B434E;
+    text-decoration: none;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.navbar-logo{
+    color: #EEA35D;
+
+    font-size: 3em;
+    font-family: 'Amatic SC', cursive;
+}
+
+.navbar-logo:hover{
+    color: #ffc98d;
+}
+
+.push-right{
+    margin-right: 0px;
+    margin-left: auto;
+}
+</style><style type="text/css">.footer{
+    line-height:80px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0.9em;
+}
+
+</style><style type="text/css">.view{
+    flex: 1 1;
+    padding: 0px 25%;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px){
+    .view{
+        padding: 0px 5%;
+    }
+}
+
+.view .hidden-text{
+    font-size: 0.2em;
+    margin: -24px 0px;
+}
+
+</style><style type="text/css">.search-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 8px;
+}
+
+.search-input{
+    width: 90%;
+}
+</style><style type="text/css">.things-list-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}</style><style type="text/css">.things-list-element{
+    display: grid;
+    grid-template-columns: 3em auto 30%;
+    grid-template-rows: 3em 3em;
+    grid-gap: 0px 1%;
+    gap: 0px 1%;
+    align-items: center;
+    grid-template-areas:
+    "icon title count"
+    "icon place reserve";
+
+    padding: 1em;
+    list-style:none;
+    border-radius: 7px;
+    transition-duration: 0.1s;
+}
+
+a{
+    text-decoration: none;
+}
+
+.things-list-element:hover{
+    color: #3B434E;
+    background-color: #eeebe3;
+}
+
+.things-list-element-icon{
+    height: 3em;
+    width: 3em;
+    margin: 12px;
+    grid-area: icon;
+    justify-self: center;
+}
+
+.things-list-element-title{
+    grid-area: title;
+    font-size: 1.5em;
+    justify-self: self-start;
+}
+
+.things-list-element-place{
+    grid-area: place;
+    font-size: 1em;
+    justify-self: self-start;
+}
+
+.things-list-element-reserve{
+    grid-area: reserve;
+    font-size: 0.8em;
+    align-self: center;
+    justify-self: self-end;
+}
+
+.things-list-element-count{
+    grid-area: count;
+    color: #EEA35D;
+    font-size: 2em;
+    font-weight: 600;
+    justify-self: self-end;
+}
+</style><style type="text/css">.things-list{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    margin: 16px 2em;
+}
+
+.things-list a{
+    text-decoration: none;
+}</style><style type="text/css">.thing-page-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thing-page-body{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.thing-page-content-block-body{
+    background-color: #eeebe3;
+    margin: 0px;
+    padding: 16px;
+    border-radius: 7px;
+    border-collapse:separate;
+    border-spacing: 8px;
+}
+
+.thing-page-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.thing-table-count{
+    font-weight: 500;
+    color: #EEA35D;
+    text-align: end;
+}</style><style type="text/css">body{
+    margin: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+
+    color: #3B434E;
+    background-color: #F6F5F1;
+}
+
+a{
+    color: #3B434E;
+    text-decoration: underline;
+    transition-duration: 0.1s;
+}
+
+a:hover{
+    color: #EEA35D;
+}
+
+input{
+    width: 24em;
+
+    text-align: center;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    outline: none;
+
+    border-color: #EEA35D;
+    border-radius: 7px;
+    border-style: solid;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+button{
+    padding: 10px 24px;
+    margin: 4px 16px;
+
+    color: #3B434E;
+    background-color: #EEA35D;
+
+    font-weight: 700;
+    font-family: inherit;
+    font-size: 0.8em;
+
+    outline: none;
+
+    border-style: none;
+    border-radius: 7px;
+
+    transition-duration: 0.1s;
+}
+
+button:focus{
+    border-style: none;
+}
+
+button:hover{
+    background-color: #ffc98d;
+}
+
+.root{
+    height: 100%;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+table{
+    background-color: #eeebe3;
+    margin: 0px;
+    padding: 16px;
+    border-radius: 7px;
+    border-collapse:separate;
+    border-spacing: 8px;
+}
+
+tr,td{
+    text-align: justify;
+}
+
+.container{
+    min-height: calc(100vh - 80px);
+}
+
+.form-input{
+    margin-bottom: 24px;
+}
+
+.form-input p{
+    font-weight: 500;
+}
+
+.form-input .form-error{
+    color: #9b0000;
+    font-size: 0.8em;
+    font-weight: 700;
+}</style><style type="text/css">.ncf-container-otsledit {
+    font-size: 14px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 999999
+}
+
+.ncf-container-otsledit.nfc-top-left-otsledit {
+    top: 12px;
+    left: 12px
+}
+
+.ncf-container-otsledit.nfc-top-right-otsledit {
+    top: 12px;
+    right: 12px
+}
+
+.ncf-container-otsledit.nfc-bottom-right-otsledit {
+    bottom: 12px;
+    right: 12px
+}
+
+.ncf-container-otsledit.nfc-bottom-left-otsledit {
+    bottom: 12px;
+    left: 12px
+}
+
+@media (max-width: 767px) {
+    .ncf-container-otsledit {
+        left: 0;
+        right: 0
+    }
+}
+
+.ncf-container-otsledit .ncf-otsledit {
+    background: #fff;
+    transition: .3s ease;
+    position: relative;
+    pointer-events: auto;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 30px;
+    width: 300px;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 12px #999;
+    color: #000!important;
+    opacity: .9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+    filter: alpha(opacity=90);
+    background-position: 15px !important;
+    background-repeat: no-repeat !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.ncf-container-otsledit .ncf-otsledit:hover {
+    box-shadow: 0 0 12px #000;
+    opacity: 1;
+    cursor: pointer
+}
+
+.ncf-container-otsledit .ncf-otsledit .ncf-title-otsledit {
+    font-weight: 700;
+    font-size: 16px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: #fff!important;
+    word-wrap: break-word
+}
+
+.ncf-container-otsledit .ncf-otsledit .nfc-message-otsledit {
+    margin: 0;
+    text-align: left;
+    word-wrap: break-word
+}
+
+.ncf-container-otsledit .success-otsledit {
+    background: #51a351;
+    color: #fff!important;
+    padding: 15px 15px 15px 50px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==")
+}
+
+.ncf-container-otsledit .info-otsledit {
+    background: #2f96b4;
+    color: #fff!important;
+    padding: 15px 15px 15px 50px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=")
+}
+
+.ncf-container-otsledit .warning-otsledit {
+    background: #f87400;
+    color: #fff!important;
+    padding: 15px 15px 15px 50px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=")
+}
+
+.ncf-container-otsledit .error-otsledit {
+    background: #bd362f;
+    color: #fff!important;
+    padding: 15px 15px 15px 50px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=") !important
+}
+
+.ncf-container-otsledit button {
+    position: relative;
+    right: -.3em;
+    top: -.3em;
+    float: right;
+    font-weight: 700;
+    color: #fff!important;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .8;
+    line-height: 1;
+    font-size: 16px;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0
+}
+
+.ncf-container-otsledit a {
+    color: #fff!important;
+}
+
+.ncf-container-otsledit button:hover {
+    opacity: 1
+}</style><style>.cip-genpw-icon.cip-icon-key-small {background-image: url(chrome-extension://dafgdjggglmmknipkhngniifhplpcldb/icons/key_16x16.png); }
+.cip-genpw-icon.cip-icon-key-big {background-image: url(chrome-extension://dafgdjggglmmknipkhngniifhplpcldb/icons/key_24x24.png); }
+</style><script charset="utf-8" src="./Коробасы_files/main.95632ae8b5ccf2ed8b22.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.8abcbd1d4257222a3e8a.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.ec74fa5573ff693b2084.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.40ea03119f0a304c06e4.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.bd19e97d661acfbfb22c.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.4ea13b5a72811f92880e.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.1e4b2e948012988e653c.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.f9bf1765489cfe2d5821.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.2d13003484e71f787453.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.c5cb4f7db0b70f9ba9dc.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.3adba8f812face57eee9.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.e591bb124e574faba684.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.e6d3eeb4d24bb0adccb1.hot-update.js.Без названия"></script><script charset="utf-8" src="./Коробасы_files/main.b9d905c2bf5e57996007.hot-update.js.Без названия"></script></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="container"><nav class="navbar"><a class="navbar-item navbar-logo" href="http://192.168.1.76:3000/">Коробасы</a><div class="push-right"><a class="navbar-item" href="http://192.168.1.76:3000/signin">Вход</a><a class="navbar-item" href="http://192.168.1.76:3000/signup">Регистрация</a></div></nav><div class="view"><h1 class="title">123</h1></div></div><footer class="footer"><s>Не</s> сделал <a href="https://github.com/spAm25">Даня</a>. Исходники <a href="https://github.com/spAm25/korobasy">тут</a>.</footer></div>
+  <script src="./Коробасы_files/bundle.js.Без названия"></script><script src="./Коробасы_files/0.chunk.js.Без названия"></script><script src="./Коробасы_files/main.chunk.js.Без названия"></script><script src="./Коробасы_files/main.a7711cba91755dad4d4f.hot-update.js.Без названия"></script>
+<div id="kphc-pw-dialog" class="kphc"><div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable" aria-describedby="cip-genpw-dialog" aria-labelledby="ui-id-1" style="display: none;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Password Generator</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="×"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>×</button></div><div id="cip-genpw-dialog" class="ui-dialog-content ui-widget-content"><div class="cip-genpw-clearfix"><button id="cip-genpw-btn-generate" class="b2c-btn b2c-btn-primary b2c-btn-small" style="float: left;">Generate</button><button id="cip-genpw-btn-clipboard" class="b2c-btn b2c-btn-small" style="float: right;">Copy to clipboard</button></div><div class="b2c-input-append cip-genpw-password-frame"><input id="cip-genpw-textfield-password" type="text" class="cip-genpw-textfield"><span class="b2c-add-on" id="cip-genpw-quality">123 Bits</span></div><label class="cip-genpw-label"><input id="cip-genpw-checkbox-next-field" type="checkbox" class="cip-genpw-checkbox"> also fill in the next password-field</label><button id="cip-genpw-btn-fillin" class="b2c-btn b2c-btn-small">Fill in &amp; copy to clipboard</button></div></div></div></body></html>

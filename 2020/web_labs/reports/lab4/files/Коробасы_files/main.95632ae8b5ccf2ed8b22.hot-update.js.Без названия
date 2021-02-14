@@ -1,0 +1,22 @@
+webpackHotUpdate("main",{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/components/ThingListElement/ThingsListElement.css":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/components/ThingListElement/ThingsListElement.css ***!
+  \******************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".things-list-element{\n    display: grid;\n    grid-template-columns: 3rem auto 30%;\n    grid-template-rows: 3rem 3rem;\n    grid-gap: 0px 1%;\n    gap: 0px 1%;\n    align-items: center;\n    grid-template-areas:\n    \"icon title count\"\n    \"icon place reserve\";\n\n    padding: 1rem;\n    list-style:none;\n    border-radius: 7px;\n    transition-duration: 0.1s;\n}\n\na{\n    text-decoration: none;\n}\n\n.things-list-element:hover{\n    color: #3B434E;\n    background-color: #eeebe3;\n}\n\n.things-list-element-icon{\n    height: 3rem;\n    width: 3rem;\n    margin: 12px;\n    grid-area: icon;\n    justify-self: center;\n}\n\n.things-list-element-title{\n    grid-area: title;\n    font-size: 1.5em;\n    justify-self: self-start;\n}\n\n.things-list-element-place{\n    grid-area: place;\n    font-size: 1em;\n    justify-self: self-start;\n}\n\n.things-list-element-reserve{\n    grid-area: reserve;\n    font-size: 0.8em;\n    align-self: center;\n    justify-self: self-end;\n}\n\n.things-list-element-count{\n    grid-area: count;\n    color: #EEA35D;\n    font-size: 2em;\n    font-weight: 600;\n    justify-self: self-end;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ })
+
+})
+//# sourceMappingURL=main.95632ae8b5ccf2ed8b22.hot-update.js.map

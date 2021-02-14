@@ -1,0 +1,172 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{import} \PYG{n+nx}{React}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{n+nx}{createContext}\PYG{p}{,} \PYG{n+nx}{useContext}\PYG{p}{,} \PYG{n+nx}{useState}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{baseUrl} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}./constants\PYGZsq{}}
+\PYG{k+kr}{import} \PYG{n+nx}{axios} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}axios\PYGZsq{}}
+
+\PYG{k+kr}{const} \PYG{n+nx}{authContext} \PYG{o}{=} \PYG{n+nx}{createContext}\PYG{p}{();}
+
+\PYG{k+kr}{export} \PYG{k+kd}{function} \PYG{n+nx}{ProvideAuth}\PYG{p}{(\PYGZob{}}\PYG{n+nx}{children}\PYG{p}{\PYGZcb{})} \PYG{p}{\PYGZob{}}
+    \PYG{k+kr}{const} \PYG{n+nx}{auth} \PYG{o}{=} \PYG{n+nx}{useProvideAuth}\PYG{p}{();}
+    \PYG{k}{return} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{authContext}\PYG{p}{.}\PYG{n+nx}{Provider} \PYG{n+nx}{value}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{auth}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZgt{}}\PYG{p}{\PYGZob{}}\PYG{n+nx}{children}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZlt{}}\PYG{err}{/authContext.Provider\PYGZgt{};}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kr}{export} \PYG{k+kr}{const} \PYG{n+nx}{useAuth} \PYG{o}{=} \PYG{p}{()} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{n+nx}{useContext}\PYG{p}{(}\PYG{n+nx}{authContext}\PYG{p}{);}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kd}{function} \PYG{n+nx}{useProvideAuth}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k+kr}{const} \PYG{p}{[}\PYG{n+nx}{user}\PYG{p}{,} \PYG{n+nx}{setUser}\PYG{p}{]} \PYG{o}{=} \PYG{n+nx}{useState}\PYG{p}{(}\PYG{k+kc}{null}\PYG{p}{)}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getAccessToken} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{()} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kr}{const} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{getItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}accessToken\PYGZsq{}}\PYG{p}{);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{verifyToken}\PYG{p}{(}\PYG{n+nx}{accessToken}\PYG{p}{))} \PYG{k}{return} \PYG{n+nx}{accessToken}\PYG{p}{;}
+        \PYG{k}{else} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{refreshToken} \PYG{o}{=} \PYG{n+nx}{getRefreshToken}\PYG{p}{();}
+            \PYG{k}{try} \PYG{p}{\PYGZob{}}
+                \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                    \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}post\PYGZsq{}}\PYG{p}{,}
+                    \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}/auth/jwt/refresh\PYGZsq{}}\PYG{p}{,}
+                    \PYG{n+nx}{data}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                        \PYG{n+nx}{refresh}\PYG{o}{:} \PYG{n+nx}{refreshToken}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{()}
+                    \PYG{p}{\PYGZcb{}}
+                \PYG{p}{\PYGZcb{})}
+                \PYG{k+kr}{const} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{access}\PYG{p}{;}
+                \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{setItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}accessToken\PYGZsq{}}\PYG{p}{,} \PYG{n+nx}{accessToken}\PYG{p}{);}
+                \PYG{k}{return} \PYG{n+nx}{accessToken}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+                \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{removeItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}accessToken\PYGZsq{}}\PYG{p}{);}
+                \PYG{n+nx}{setLoginStatus}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginNone\PYGZsq{}}\PYG{p}{);}
+                \PYG{k}{return} \PYG{k+kc}{null}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getRefreshToken} \PYG{o}{=} \PYG{p}{()} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{refreshToken} \PYG{o}{=} \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{getItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}refreshToken\PYGZsq{}}\PYG{p}{);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{verifyToken}\PYG{p}{(}\PYG{n+nx}{refreshToken}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{n+nx}{refreshToken}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+            \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{removeItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}refreshToken\PYGZsq{}}\PYG{p}{);}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{verifyToken} \PYG{o}{=} \PYG{p}{(}\PYG{n+nx}{token}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{jwt\PYGZus{}token} \PYG{o}{=} \PYG{n+nx}{JSON}\PYG{p}{.}\PYG{n+nx}{parse}\PYG{p}{(}\PYG{n+nx}{atob}\PYG{p}{(}\PYG{n+nx}{token}\PYG{p}{.}\PYG{n+nx}{split}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}.\PYGZsq{}}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{p}{]))}
+            \PYG{k}{return} \PYG{p}{((}\PYG{n+nb}{Date}\PYG{p}{.}\PYG{n+nx}{now}\PYG{p}{()} \PYG{o}{/} \PYG{l+m+mi}{1000} \PYG{o}{|} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n+nx}{jwt\PYGZus{}token}\PYG{p}{.}\PYG{n+nx}{exp}\PYG{p}{)}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{false}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{login} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{username}\PYG{p}{,} \PYG{n+nx}{password}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{n+nx}{setLoginStatus}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginWait\PYGZsq{}}\PYG{p}{);}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}post\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}/auth/jwt/create\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{data}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{username}\PYG{o}{:} \PYG{n+nx}{username}\PYG{p}{,}
+                    \PYG{n+nx}{password}\PYG{o}{:} \PYG{n+nx}{password}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{})}
+            \PYG{k+kr}{const} \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{;}
+            \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{setItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}accessToken\PYGZsq{}}\PYG{p}{,} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{access}\PYG{p}{);}
+            \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{setItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}refreshToken\PYGZsq{}}\PYG{p}{,} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{refresh}\PYG{p}{);}
+            \PYG{n+nx}{setLoginStatus}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginSuccess\PYGZsq{}}\PYG{p}{);}
+            \PYG{k+kr}{const} \PYG{n+nx}{result} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{getUser}\PYG{p}{();}
+            \PYG{n+nx}{setUser}\PYG{p}{(}\PYG{n+nx}{result}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{log}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginError\PYGZsq{}}\PYG{p}{);}
+            \PYG{n+nx}{setLoginStatus}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginError\PYGZsq{}}\PYG{p}{);}
+
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{};}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{logout} \PYG{o}{=} \PYG{p}{()} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{removeItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}accessToken\PYGZsq{}}\PYG{p}{);}
+        \PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{.}\PYG{n+nx}{removeItem}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}refreshToken\PYGZsq{}}\PYG{p}{);}
+        \PYG{n+nx}{setLoginStatus}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}loginNone\PYGZsq{}}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{};}
+
+    \PYG{k+kr}{const} \PYG{p}{[}\PYG{n+nx}{loginStatus}\PYG{p}{,} \PYG{n+nx}{setLoginStatus}\PYG{p}{]} \PYG{o}{=} \PYG{n+nx}{useState}\PYG{p}{(}
+        \PYG{n+nx}{verifyToken}\PYG{p}{(}\PYG{n+nx}{getRefreshToken}\PYG{p}{())} \PYG{o}{?} \PYG{l+s+s1}{\PYGZsq{}loginSuccess\PYGZsq{}} \PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}loginNone\PYGZsq{}}
+    \PYG{p}{)}
+
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getUserInfo} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{(}\PYG{n+nx}{userId}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kr}{const} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/api/users/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{userId}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{()}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{});}
+            \PYG{k}{return} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{p}{\PYGZob{}\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getUser} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{()} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/auth/users/me`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{})}
+            \PYG{k+kr}{const} \PYG{n+nx}{userId} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{id}\PYG{p}{;}
+            \PYG{k+kr}{const} \PYG{n+nx}{userInfo} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{getUserInfo}\PYG{p}{(}\PYG{n+nx}{userId}\PYG{p}{);}
+            \PYG{k}{return} \PYG{n+nx}{userInfo}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{p}{;}
+    \PYG{p}{\PYGZcb{};}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{updateUser} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{()} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+        \PYG{k+kd}{let} \PYG{n+nx}{accessToken} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{getAccessToken}\PYG{p}{();}
+        \PYG{k}{try} \PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{n+nx}{baseUrl} \PYG{o}{+} \PYG{l+s+sb}{`/auth/users/me`}\PYG{p}{,}
+                \PYG{n+nx}{headers}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nx}{Authorization}\PYG{o}{:} \PYG{l+s+sb}{`Bearer }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{accessToken}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{})}
+            \PYG{k+kr}{const} \PYG{n+nx}{userId} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{id}\PYG{p}{;}
+            \PYG{k+kr}{const} \PYG{n+nx}{userInfo} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{getUserInfo}\PYG{p}{(}\PYG{n+nx}{userId}\PYG{p}{);}
+            \PYG{n+nx}{setUser}\PYG{p}{(}\PYG{n+nx}{userInfo}\PYG{p}{)}
+        \PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{p}{;}
+    \PYG{p}{\PYGZcb{};}
+
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{loginStatus} \PYG{o}{===} \PYG{l+s+s1}{\PYGZsq{}loginSuccess\PYGZsq{}} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nx}{user} \PYG{o}{==} \PYG{k+kc}{null}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{getUser}\PYG{p}{().}\PYG{n+nx}{then}\PYG{p}{(}
+            \PYG{p}{(}\PYG{n+nx}{result}\PYG{p}{)} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+                \PYG{n+nx}{setUser}\PYG{p}{(}\PYG{n+nx}{result}\PYG{p}{)}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{p}{;}
+
+    \PYG{k}{return} \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{loginStatus}\PYG{p}{,}
+        \PYG{n+nx}{getAccessToken}\PYG{p}{,}
+        \PYG{n+nx}{setLoginStatus}\PYG{p}{,}
+        \PYG{n+nx}{updateUser}\PYG{p}{,}
+        \PYG{n+nx}{user}\PYG{p}{,}
+        \PYG{n+nx}{login}\PYG{p}{,}
+        \PYG{n+nx}{logout}
+    \PYG{p}{\PYGZcb{};}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

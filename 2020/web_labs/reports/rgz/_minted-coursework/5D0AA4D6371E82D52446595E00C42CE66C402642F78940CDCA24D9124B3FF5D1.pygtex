@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{rest\PYGZus{}framework} \PYG{k+kn}{import} \PYG{n}{serializers} 
+\PYG{k+kn}{from} \PYG{n+nn}{things.models} \PYG{k+kn}{import} \PYG{n}{Thing}\PYG{p}{,}\PYG{n}{ThingInstance}\PYG{p}{,}\PYG{n}{ThingCategory}
+\PYG{k+kn}{from} \PYG{n+nn}{taggit\PYGZus{}serializer.serializers} \PYG{k+kn}{import} \PYG{p}{(}\PYG{n}{TagListSerializerField}\PYG{p}{,}
+                                           \PYG{n}{TaggitSerializer}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{ThingSerializer}\PYG{p}{(}\PYG{n}{TaggitSerializer}\PYG{p}{,} \PYG{n}{serializers}\PYG{o}{.}\PYG{n}{ModelSerializer}\PYG{p}{):}
+    \PYG{n}{tags} \PYG{o}{=} \PYG{n}{TagListSerializerField}\PYG{p}{()}
+    \PYG{n}{things\PYGZus{}instances} \PYG{o}{=} \PYG{n}{serializers}\PYG{o}{.}\PYG{n}{PrimaryKeyRelatedField}\PYG{p}{(}\PYG{n}{many}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,}\PYG{n}{queryset}\PYG{o}{=}\PYG{n}{ThingInstance}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{())}
+    \PYG{k}{class} \PYG{n+nc}{Meta}\PYG{p}{:}
+        \PYG{n}{model} \PYG{o}{=} \PYG{n}{Thing}
+        \PYG{n}{fields} \PYG{o}{=} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}id\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}name\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}description\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}things\PYGZus{}instances\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}category\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}tags\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{ThingInstanceSerializer}\PYG{p}{(}\PYG{n}{serializers}\PYG{o}{.}\PYG{n}{ModelSerializer}\PYG{p}{):}
+    \PYG{k}{class} \PYG{n+nc}{Meta}\PYG{p}{:}
+        \PYG{n}{model} \PYG{o}{=} \PYG{n}{ThingInstance}
+        \PYG{n}{fields} \PYG{o}{=} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}id\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}section\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}type\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}count\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{ThingCategorySerializer}\PYG{p}{(}\PYG{n}{serializers}\PYG{o}{.}\PYG{n}{ModelSerializer}\PYG{p}{):}
+    \PYG{n}{things} \PYG{o}{=} \PYG{n}{serializers}\PYG{o}{.}\PYG{n}{PrimaryKeyRelatedField}\PYG{p}{(}\PYG{n}{many}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,}\PYG{n}{queryset}\PYG{o}{=}\PYG{n}{Thing}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{())}
+    \PYG{k}{class} \PYG{n+nc}{Meta}\PYG{p}{:}
+        \PYG{n}{model} \PYG{o}{=} \PYG{n}{ThingCategory}
+        \PYG{n}{fields} \PYG{o}{=} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}id\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}name\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}icon\PYGZus{}label\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}things\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

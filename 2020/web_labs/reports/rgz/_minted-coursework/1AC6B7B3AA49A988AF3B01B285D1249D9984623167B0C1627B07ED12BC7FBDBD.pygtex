@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{storages.models} \PYG{k+kn}{import} \PYG{n}{Storage}\PYG{p}{,}\PYG{n}{Section}
+\PYG{k+kn}{from} \PYG{n+nn}{storages.serializers} \PYG{k+kn}{import} \PYG{n}{StorageSerializer}\PYG{p}{,}\PYG{n}{SectionSerializer}
+\PYG{k+kn}{from} \PYG{n+nn}{storages.permissions} \PYG{k+kn}{import} \PYG{n}{IsOwner}
+\PYG{k+kn}{from} \PYG{n+nn}{rest\PYGZus{}framework.viewsets} \PYG{k+kn}{import} \PYG{n}{ModelViewSet}
+\PYG{k+kn}{from} \PYG{n+nn}{rest\PYGZus{}framework.permissions} \PYG{k+kn}{import} \PYG{n}{IsAuthenticated}
+
+\PYG{k}{class} \PYG{n+nc}{StorageViewset}\PYG{p}{(}\PYG{n}{ModelViewSet}\PYG{p}{):}
+    \PYG{n}{queryset} \PYG{o}{=} \PYG{n}{Storage}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{()}
+    \PYG{n}{serializer\PYGZus{}class} \PYG{o}{=} \PYG{n}{StorageSerializer}
+
+    \PYG{n}{permission\PYGZus{}classes} \PYG{o}{=} \PYG{p}{(}\PYG{n}{IsAuthenticated}\PYG{p}{,}\PYG{n}{IsOwner}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{perform\PYGZus{}create}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{serializer}\PYG{p}{):}
+        \PYG{n}{serializer}\PYG{o}{.}\PYG{n}{save}\PYG{p}{(}\PYG{n}{owner}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{request}\PYG{o}{.}\PYG{n}{user}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{SectionViewset}\PYG{p}{(}\PYG{n}{ModelViewSet}\PYG{p}{):}
+    \PYG{n}{queryset} \PYG{o}{=} \PYG{n}{Section}\PYG{o}{.}\PYG{n}{objects}\PYG{o}{.}\PYG{n}{all}\PYG{p}{()}
+    \PYG{n}{serializer\PYGZus{}class} \PYG{o}{=} \PYG{n}{SectionSerializer}
+
+    \PYG{n}{permission\PYGZus{}classes} \PYG{o}{=} \PYG{p}{(}\PYG{n}{IsAuthenticated}\PYG{p}{,)}
+\end{Verbatim}

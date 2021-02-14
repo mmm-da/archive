@@ -1,0 +1,53 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nt}{version}\PYG{p}{:} \PYG{l+s}{\PYGZdq{}3.8\PYGZdq{}}
+
+\PYG{n+nt}{services}\PYG{p}{:} 
+  \PYG{n+nt}{dev\PYGZus{}backend}\PYG{p}{:}
+    \PYG{n+nt}{container\PYGZus{}name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{korobasy\PYGZus{}dev\PYGZus{}backend}
+    \PYG{n+nt}{build}\PYG{p}{:}
+      \PYG{n+nt}{dockerfile}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{dev\PYGZus{}backend.dockerfile}
+      \PYG{n+nt}{context}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{.}
+    \PYG{n+nt}{environment}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{DEBUG=1}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{DJANGO\PYGZus{}ALLOWED\PYGZus{}HOSTS=localhost 192.168.1.76}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{PYTHONUNBUFFERED=1}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{SECRET\PYGZus{}KEY=secret}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}USER=postgres}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}PASSWORD=postgres}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}DB=korobasy}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}PORT=5432}
+    \PYG{n+nt}{command}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{sh ./run\PYGZus{}django.sh}
+    \PYG{n+nt}{restart}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{always}
+    \PYG{n+nt}{depends\PYGZus{}on}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{dev\PYGZus{}frontend}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{database}
+    \PYG{n+nt}{volumes}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{.:/app}
+    \PYG{n+nt}{ports}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+s}{\PYGZdq{}8000:8000\PYGZdq{}}
+
+  \PYG{n+nt}{dev\PYGZus{}frontend}\PYG{p}{:}
+    \PYG{n+nt}{container\PYGZus{}name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{korobasy\PYGZus{}dev\PYGZus{}frontend}
+    \PYG{n+nt}{build}\PYG{p}{:}
+      \PYG{n+nt}{dockerfile}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{dev\PYGZus{}frontend.dockerfile}
+      \PYG{n+nt}{context}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{.}
+    \PYG{n+nt}{environment}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{CI=true}
+    \PYG{n+nt}{command}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{npm start}
+    \PYG{n+nt}{restart}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{always}
+    \PYG{n+nt}{volumes}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{./frontend/src:/frontend/src}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{./frontend/public:/frontend/public}
+    \PYG{n+nt}{ports}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+s}{\PYGZdq{}3000:3000\PYGZdq{}}
+
+  \PYG{n+nt}{database}\PYG{p}{:}
+    \PYG{n+nt}{container\PYGZus{}name}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{korobasy\PYGZus{}dev\PYGZus{}postgres}
+    \PYG{n+nt}{image}\PYG{p}{:} \PYG{l+lScalar+lScalarPlain}{postgres:13}
+    \PYG{n+nt}{environment}\PYG{p}{:} 
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}USER=postgres}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}PASSWORD=postgres}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+lScalar+lScalarPlain}{POSTGRES\PYGZus{}DB=korobasy}
+    \PYG{n+nt}{ports}\PYG{p}{:}
+      \PYG{p+pIndicator}{\PYGZhy{}} \PYG{l+s}{\PYGZdq{}5432:5432\PYGZdq{}}
+\end{Verbatim}

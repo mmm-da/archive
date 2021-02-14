@@ -1,0 +1,51 @@
+version: "3.8"
+
+services: 
+  dev_backend:
+    container_name: korobasy_dev_backend
+    build:
+      dockerfile: dev_backend.dockerfile
+      context: .
+    environment:
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=localhost 192.168.1.76
+      - PYTHONUNBUFFERED=1
+      - SECRET_KEY=secret
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=korobasy
+      - POSTGRES_PORT=5432
+    command: sh ./run_django.sh
+    restart: always
+    depends_on:
+      - dev_frontend
+      - database
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+
+  dev_frontend:
+    container_name: korobasy_dev_frontend
+    build:
+      dockerfile: dev_frontend.dockerfile
+      context: .
+    environment:
+      - CI=true
+    command: npm start
+    restart: always
+    volumes:
+      - ./frontend/src:/frontend/src
+      - ./frontend/public:/frontend/public
+    ports:
+      - "3000:3000"
+
+  database:
+    container_name: korobasy_dev_postgres
+    image: postgres:13
+    environment: 
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=korobasy
+    ports:
+      - "5432:5432"
