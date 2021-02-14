@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{lombok.AllArgsConstructor}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{lombok.Data}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{javax.persistence.*}\PYG{p}{;}
+
+\PYG{n+nd}{@Data}
+\PYG{n+nd}{@Entity}
+\PYG{k+kd}{public} \PYG{k+kd}{class} \PYG{n+nc}{Section} \PYG{p}{\PYGZob{}}
+    \PYG{n+nd}{@Id}
+    \PYG{n+nd}{@GeneratedValue}\PYG{p}{(}\PYG{n}{strategy}\PYG{o}{=} \PYG{n}{GenerationType}\PYG{p}{.}\PYG{n+na}{IDENTITY}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{Integer} \PYG{n}{id}\PYG{p}{;}
+    \PYG{k+kd}{private} \PYG{n}{String} \PYG{n}{name}\PYG{p}{;}
+
+    \PYG{n+nd}{@ManyToOne}\PYG{p}{(}\PYG{n}{cascade} \PYG{o}{=} \PYG{n}{CascadeType}\PYG{p}{.}\PYG{n+na}{ALL}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{Storage} \PYG{n}{storage}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

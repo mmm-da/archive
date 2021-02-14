@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{ru.bstu.vt41.mds.coursework}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.boot.SpringApplication}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.boot.autoconfigure.SpringBootApplication}\PYG{p}{;}
+
+\PYG{n+nd}{@SpringBootApplication}
+\PYG{k+kd}{public} \PYG{k+kd}{class} \PYG{n+nc}{CourseworkApplication} \PYG{p}{\PYGZob{}}
+
+    \PYG{k+kd}{public} \PYG{k+kd}{static} \PYG{k+kt}{void} \PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{String}\PYG{o}{[]} \PYG{n}{args}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{SpringApplication}\PYG{p}{.}\PYG{n+na}{run}\PYG{p}{(}\PYG{n}{CourseworkApplication}\PYG{p}{.}\PYG{n+na}{class}\PYG{p}{,} \PYG{n}{args}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+    
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

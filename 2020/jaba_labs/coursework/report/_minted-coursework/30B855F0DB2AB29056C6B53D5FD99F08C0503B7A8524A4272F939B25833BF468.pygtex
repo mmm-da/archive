@@ -1,0 +1,66 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef SCAN\PYGZus{}FUNCTIONS\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define SCAN\PYGZus{}FUNCTIONS\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QObject\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QTcpSocket\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QHostAddress\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QRunnable\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QTimer\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QEventLoop\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}QDebug\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}cross\PYGZus{}sockets.h\PYGZdq{}}
+
+\PYG{c+c1}{//1 \PYGZhy{} закрыт}
+\PYG{c+c1}{//\PYGZhy{}1 \PYGZhy{} ошибка}
+\PYG{c+c1}{//0 \PYGZhy{} открыт}
+
+\PYG{n}{class} \PYG{n+nl}{SimplePortScan} \PYG{p}{:} \PYG{n}{public} \PYG{n}{QObject}\PYG{p}{,}\PYG{n}{public} \PYG{n}{QRunnable}\PYG{p}{\PYGZob{}}
+    \PYG{n}{Q\PYGZus{}OBJECT}
+    \PYG{n+nl}{signals}\PYG{p}{:}
+        \PYG{k+kt}{void} \PYG{n}{exit\PYGZus{}code}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{return\PYGZus{}code}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{port}\PYG{p}{);}
+    \PYG{n+nl}{public}\PYG{p}{:}
+        \PYG{k+kt}{int} \PYG{n}{code} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{n}{explicit} \PYG{n+nf}{SimplePortScan}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{port}\PYG{p}{,} \PYG{n}{QString} \PYG{n}{address}\PYG{p}{,} \PYG{n}{QObject} \PYG{o}{*}\PYG{n}{parent} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{:}\PYG{n}{QObject}\PYG{p}{(}\PYG{n}{parent}\PYG{p}{),}\PYG{n}{port}\PYG{p}{(}\PYG{n}{port}\PYG{p}{),}\PYG{n}{address}\PYG{p}{(}\PYG{n}{address}\PYG{p}{)\PYGZob{}\PYGZcb{};}
+        \PYG{k+kt}{void} \PYG{n+nf}{run}\PYG{p}{()\PYGZob{}}
+            \PYG{c+c1}{//переписать под событийный таймер}
+            \PYG{n}{QTcpSocket} \PYG{n}{socket}\PYG{p}{;}
+            \PYG{n}{QTimer} \PYG{n}{timer}\PYG{p}{;}
+            \PYG{n}{timer}\PYG{p}{.}\PYG{n}{setSingleShot}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+            \PYG{n}{QEventLoop} \PYG{n}{loop}\PYG{p}{;}
+            \PYG{n}{connect}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{timer}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{QTimer}\PYG{o}{::}\PYG{n}{timeout}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{loop}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{QEventLoop}\PYG{o}{::}\PYG{n}{quit}\PYG{p}{);}
+            \PYG{n}{connect}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{socket}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{QAbstractSocket}\PYG{o}{::}\PYG{n}{connected}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{loop}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{QEventLoop}\PYG{o}{::}\PYG{n}{quit}\PYG{p}{);}
+            \PYG{n}{socket}\PYG{p}{.}\PYG{n}{connectToHost}\PYG{p}{(}\PYG{n}{address}\PYG{p}{,(}\PYG{n}{qint16}\PYG{p}{)}\PYG{n}{port}\PYG{p}{);}
+            \PYG{n}{timer}\PYG{p}{.}\PYG{n}{start}\PYG{p}{(}\PYG{l+m+mi}{1500}\PYG{p}{);}
+            \PYG{n}{loop}\PYG{p}{.}\PYG{n}{exec}\PYG{p}{();}
+            \PYG{k}{if}\PYG{p}{(}\PYG{n}{timer}\PYG{p}{.}\PYG{n}{isActive}\PYG{p}{())\PYGZob{}}
+                    \PYG{n}{qDebug}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{port}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}: open\PYGZdq{}}\PYG{p}{;}
+                    \PYG{n}{code} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+                    \PYG{n}{emit} \PYG{n}{exit\PYGZus{}code}\PYG{p}{(}\PYG{n}{code}\PYG{p}{,}\PYG{n}{port}\PYG{p}{);}
+            \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+                    \PYG{n}{qDebug}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{port}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}: timeout\PYGZdq{}}\PYG{p}{;}
+                    \PYG{n}{code} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+                    \PYG{n}{emit} \PYG{n}{exit\PYGZus{}code}\PYG{p}{(}\PYG{n}{code}\PYG{p}{,}\PYG{n}{port}\PYG{p}{);}
+            \PYG{p}{\PYGZcb{}}
+
+        \PYG{p}{\PYGZcb{};}
+    \PYG{n+nl}{protected}\PYG{p}{:}
+        \PYG{k+kt}{int} \PYG{n}{port}\PYG{p}{;}
+        \PYG{n}{QString} \PYG{n}{address}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{n}{class} \PYG{n+nl}{NonConnectPortScan} \PYG{p}{:} \PYG{n}{public} \PYG{n}{QObject}\PYG{p}{,}\PYG{n}{public} \PYG{n}{QRunnable}\PYG{p}{\PYGZob{}}
+    \PYG{n}{Q\PYGZus{}OBJECT}
+    \PYG{n+nl}{signals}\PYG{p}{:}
+        \PYG{k+kt}{void} \PYG{n}{exit\PYGZus{}code}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{return\PYGZus{}code}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{port}\PYG{p}{);}
+    \PYG{n+nl}{public}\PYG{p}{:}
+        \PYG{n}{explicit} \PYG{n}{NonConnectPortScan}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{port}\PYG{p}{,} \PYG{n}{QString} \PYG{n}{address}\PYG{p}{,} \PYG{n}{QObject} \PYG{o}{*}\PYG{n}{parent} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{:}\PYG{n}{QObject}\PYG{p}{(}\PYG{n}{parent}\PYG{p}{),}\PYG{n}{port}\PYG{p}{(}\PYG{n}{port}\PYG{p}{),}\PYG{n}{address}\PYG{p}{(}\PYG{n}{address}\PYG{p}{)\PYGZob{}\PYGZcb{};}
+        \PYG{k+kt}{void} \PYG{n+nf}{run}\PYG{p}{()\PYGZob{}}
+            \PYG{n}{emit} \PYG{n}{exit\PYGZus{}code}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{port}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{};}
+    \PYG{n+nl}{protected}\PYG{p}{:}
+        \PYG{k+kt}{int} \PYG{n}{port}\PYG{p}{;}
+        \PYG{n}{QString} \PYG{n}{address}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// SCAN\PYGZus{}FUNCTIONS\PYGZus{}H}
+\end{Verbatim}

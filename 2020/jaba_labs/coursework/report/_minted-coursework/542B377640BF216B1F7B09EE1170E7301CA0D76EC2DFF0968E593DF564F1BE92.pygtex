@@ -1,0 +1,114 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}mainwindow.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}ui\PYGZus{}mainwindow.h\PYGZdq{}}
+\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZdq{}cross\PYGZus{}sockets.h\PYGZdq{}}
+
+\PYG{n}{MainWindow}\PYG{o}{::}\PYG{n}{MainWindow}\PYG{p}{(}\PYG{n}{QWidget} \PYG{o}{*}\PYG{n}{parent}\PYG{p}{)}
+    \PYG{o}{:} \PYG{n}{QMainWindow}\PYG{p}{(}\PYG{n}{parent}\PYG{p}{)}
+    \PYG{p}{,} \PYG{n}{ui}\PYG{p}{(}\PYG{k}{new} \PYG{n}{Ui}\PYG{o}{::}\PYG{n}{MainWindow}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+    \PYG{n}{QRegExp} \PYG{o}{*}\PYG{n}{re} \PYG{o}{=} \PYG{k}{new} \PYG{n}{QRegExp}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZca{}(?:(?:25[0\PYGZhy{}5]|2[0\PYGZhy{}4][0\PYGZhy{}9]|[01]?[0\PYGZhy{}9][0\PYGZhy{}9]?)}\PYG{l+s+se}{\PYGZbs{}\PYGZbs{}}\PYG{l+s}{.)\PYGZob{}3\PYGZcb{}(?:25[0\PYGZhy{}5]|2[0\PYGZhy{}4][0\PYGZhy{}9]|[01]?[0\PYGZhy{}9][0\PYGZhy{}9]?)\PYGZdl{}\PYGZdq{}}\PYG{p}{);}
+    \PYG{n}{QRegExpValidator} \PYG{o}{*}\PYG{n}{validator} \PYG{o}{=} \PYG{k}{new} \PYG{n}{QRegExpValidator}\PYG{p}{(}\PYG{o}{*}\PYG{n}{re}\PYG{p}{);}
+    \PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setupUi}\PYG{p}{(}\PYG{k}{this}\PYG{p}{);}
+    \PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{hide}\PYG{p}{();}
+    \PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setMinimum}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setMaximum}\PYG{p}{(}\PYG{n}{PORT\PYGZus{}EDGE}\PYG{p}{);}
+    \PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{modeButton1}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{hide}\PYG{p}{();}
+    \PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{modeButton2}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{hide}\PYG{p}{();}
+    \PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addressLine}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setValidator}\PYG{p}{(}\PYG{n}{validator}\PYG{p}{);}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{steps\PYGZus{}completed} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{threads}\PYG{p}{.}\PYG{n}{setMaxThreadCount}\PYG{p}{(}\PYG{l+m+mi}{400}\PYG{p}{);}
+    \PYG{n}{connect}\PYG{p}{(}\PYG{k}{this}\PYG{p}{,}\PYG{n}{SIGNAL}\PYG{p}{(}\PYG{n}{last\PYGZus{}task}\PYG{p}{()),}\PYG{n}{SLOT}\PYG{p}{(}\PYG{n}{last\PYGZus{}task\PYGZus{}completed}\PYG{p}{()));}
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{MainWindow}\PYG{o}{::\PYGZti{}}\PYG{n}{MainWindow}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{delete} \PYG{n}{ui}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{void} \PYG{n}{MainWindow}\PYG{o}{::}\PYG{n}{on\PYGZus{}pushButton\PYGZus{}clicked}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+   \PYG{k}{if}\PYG{p}{(}\PYG{n}{scan\PYGZus{}running}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scan\PYGZus{}running}\PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushButton}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setText}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Сканировать\PYGZdq{}}\PYG{p}{);}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{modeButton1}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{modeButton2}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addressLine}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{hide}\PYG{p}{();}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{threads}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+       \PYG{n}{qDebug}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Сканирование остановлено}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+   \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scan\PYGZus{}running} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushButton}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setText}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Отменить\PYGZdq{}}\PYG{p}{);}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{modeButton1}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{);}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{modeButton2}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{);}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addressLine}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{false}\PYG{p}{);}
+
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{show}\PYG{p}{();}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{reset}\PYG{p}{();}
+
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{steps\PYGZus{}completed} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ports}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{listWidget}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addItem}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Сканирование запущено.\PYGZdq{}}\PYG{p}{);}
+       \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{listWidget}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addItem}\PYG{p}{(}\PYG{n}{QString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Сканируемый адрес: \PYGZdq{}}\PYG{p}{)}\PYG{o}{+}\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addressLine}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{text}\PYG{p}{());}
+
+       \PYG{n}{qDebug}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Сканирование запущено}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+       \PYG{n}{qDebug}\PYG{p}{()}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}Режим: \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scan\PYGZus{}mode}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{;}
+
+       \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{PORT\PYGZus{}EDGE}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+           \PYG{k}{if}\PYG{p}{(}\PYG{n}{scan\PYGZus{}running}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{SimplePortScan} \PYG{o}{*}\PYG{n}{scan\PYGZus{}thread} \PYG{o}{=} \PYG{k}{new} \PYG{n}{SimplePortScan}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addressLine}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{text}\PYG{p}{());}
+            \PYG{n}{connect}\PYG{p}{(}\PYG{n}{scan\PYGZus{}thread}\PYG{p}{,}\PYG{n}{SIGNAL}\PYG{p}{(}\PYG{n}{exit\PYGZus{}code}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{p}{)),}\PYG{n}{SLOT}\PYG{p}{(}\PYG{n}{on\PYGZus{}result\PYGZus{}thread}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{p}{)));}
+            \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{threads}\PYG{p}{.}\PYG{n}{start}\PYG{p}{(}\PYG{n}{scan\PYGZus{}thread}\PYG{p}{);}
+           \PYG{p}{\PYGZcb{}}
+       \PYG{p}{\PYGZcb{};}
+
+   \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{void} \PYG{n}{MainWindow}\PYG{o}{::}\PYG{n}{on\PYGZus{}modeButton1\PYGZus{}clicked}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scan\PYGZus{}mode}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n}{MainWindow}\PYG{o}{::}\PYG{n}{on\PYGZus{}modeButton2\PYGZus{}clicked}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scan\PYGZus{}mode}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void} \PYG{n}{MainWindow}\PYG{o}{::}\PYG{n}{on\PYGZus{}result\PYGZus{}thread}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{result\PYGZus{}code}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{port}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{step\PYGZus{}mutex}\PYG{p}{.}\PYG{n}{lock}\PYG{p}{();}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{steps\PYGZus{}completed}\PYG{o}{++}\PYG{p}{;}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setValue}\PYG{p}{(}\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{steps\PYGZus{}completed}\PYG{p}{);}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{steps\PYGZus{}completed}\PYG{o}{==}\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{maximum}\PYG{p}{())\PYGZob{}}
+        \PYG{n}{emit} \PYG{n}{last\PYGZus{}task}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{step\PYGZus{}mutex}\PYG{p}{.}\PYG{n}{unlock}\PYG{p}{();}
+
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{map\PYGZus{}mutex}\PYG{p}{.}\PYG{n}{lock}\PYG{p}{();}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ports}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{port}\PYG{p}{,(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{result\PYGZus{}code}\PYG{p}{);}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{map\PYGZus{}mutex}\PYG{p}{.}\PYG{n}{unlock}\PYG{p}{();}
+
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{void} \PYG{n}{MainWindow}\PYG{o}{::}\PYG{n}{last\PYGZus{}task\PYGZus{}completed}\PYG{p}{()\PYGZob{}}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{listWidget}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addItem}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Сканирование завершено.\PYGZdq{}}\PYG{p}{);}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{PORT\PYGZus{}EDGE}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if}\PYG{p}{(}\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ports}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+            \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{listWidget}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addItem}\PYG{p}{(}\PYG{n}{QString}\PYG{o}{::}\PYG{n}{number}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{o}{+}\PYG{n}{QString}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}: порт открыт.\PYGZdq{}}\PYG{p}{));}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{scan\PYGZus{}running}\PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{pushButton}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setText}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Сканировать\PYGZdq{}}\PYG{p}{);}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{modeButton1}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{modeButton2}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addressLine}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setEnabled}\PYG{p}{(}\PYG{n+nb}{true}\PYG{p}{);}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{progressBar}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{hide}\PYG{p}{();}
+    \PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{ui}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{listWidget}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addItem}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{p}{);}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

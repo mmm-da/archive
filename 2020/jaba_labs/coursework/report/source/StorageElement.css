@@ -1,0 +1,22 @@
+.storage-element{
+    margin: 0.5em 1em;
+    padding: 1em;
+    list-style:none;
+    border-radius: 7px;
+    background-color: #eeebe3;
+    transition-duration: 0.1s;
+}
+
+.storage-element:hover{
+    color: #3B434E;
+    background-color: #e5e2d7;
+}
+
+a{
+    text-decoration: none;
+}
+
+.storage-element-header{
+    font-weight: bold;
+    margin: 4px 0px 12px 0px;
+}

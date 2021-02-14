@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{import} \PYG{n+nx}{React} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}react\PYGZsq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{ReactDOM} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}react\PYGZhy{}dom\PYGZsq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{App} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}./App\PYGZsq{}}\PYG{p}{;}
+
+\PYG{n+nx}{ReactDOM}\PYG{p}{.}\PYG{n+nx}{render}\PYG{p}{(}
+            \PYG{o}{\PYGZlt{}}\PYG{n+nx}{React}\PYG{p}{.}\PYG{n+nx}{StrictMode}\PYG{o}{\PYGZgt{}}
+              \PYG{o}{\PYGZlt{}}\PYG{n+nx}{App}\PYG{o}{/\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{err}{/React.StrictMode\PYGZgt{},}
+  \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{getElementById}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}root\PYGZsq{}}\PYG{p}{)}
+\PYG{p}{);}
+\end{Verbatim}

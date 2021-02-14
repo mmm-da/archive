@@ -1,0 +1,42 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{import} \PYG{n+nx}{React}\PYG{p}{,} \PYG{p}{\PYGZob{}}\PYG{n+nx}{useEffect}\PYG{p}{,} \PYG{n+nx}{useState}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{Link}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZhy{}router\PYGZhy{}dom\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{l+s+s1}{\PYGZsq{}./StorageList.css\PYGZsq{}}
+\PYG{k+kr}{import} \PYG{n+nx}{StorageElement} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}../StorageElement/StorageElement\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{Spinner}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}../Spinner/Spinner\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{axios} \PYG{n+nx}{from} \PYG{l+s+s1}{\PYGZsq{}axios\PYGZsq{}}\PYG{p}{;}
+
+\PYG{k+kr}{export} \PYG{k}{default} \PYG{k+kd}{function} \PYG{n+nx}{StorageList}\PYG{p}{(}\PYG{n+nx}{props}\PYG{p}{)\PYGZob{}}
+
+    \PYG{k+kr}{const} \PYG{p}{[}\PYG{n+nx}{components}\PYG{p}{,}\PYG{n+nx}{setComponents}\PYG{p}{]} \PYG{o}{=} \PYG{n+nx}{useState}\PYG{p}{(}\PYG{k+kc}{null}\PYG{p}{);}
+
+    \PYG{k+kr}{const} \PYG{n+nx}{getStorages} \PYG{o}{=} \PYG{n+nx}{async} \PYG{p}{()} \PYG{p}{=\PYGZgt{}\PYGZob{}}
+        \PYG{k}{try}\PYG{p}{\PYGZob{}}
+            \PYG{k+kr}{const} \PYG{n+nx}{response} \PYG{o}{=} \PYG{n+nx}{await} \PYG{n+nx}{axios}\PYG{p}{(\PYGZob{}}
+                \PYG{n+nx}{method}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}get\PYGZsq{}}\PYG{p}{,}
+                \PYG{n+nx}{url}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}localhost:8080/storages\PYGZsq{}}\PYG{p}{,}
+            \PYG{p}{\PYGZcb{});}
+            \PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{log}\PYG{p}{(}\PYG{n+nx}{response}\PYG{p}{)}
+            \PYG{k}{return} \PYG{n+nb}{Promise}\PYG{p}{.}\PYG{n+nx}{resolve}\PYG{p}{(}\PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{e}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{return} \PYG{k+kc}{null}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nx}{useEffect}\PYG{p}{(}
+        \PYG{p}{(} \PYG{p}{)=\PYGZgt{}} \PYG{p}{\PYGZob{}}
+                \PYG{n+nx}{getStorages}\PYG{p}{().}\PYG{n+nx}{then}\PYG{p}{(}
+                    \PYG{n+nx}{data} \PYG{p}{=\PYGZgt{}} \PYG{p}{\PYGZob{}}\PYG{n+nx}{setComponents}\PYG{p}{(}
+                        \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{map}\PYG{p}{(} \PYG{n+nx}{data} \PYG{p}{=\PYGZgt{}} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{StorageElement} \PYG{n+nx}{key}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{id}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{storageInfo}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{data}\PYG{p}{\PYGZcb{}}\PYG{o}{/\PYGZgt{}}\PYG{p}{)}
+                    \PYG{p}{)\PYGZcb{}}
+                \PYG{p}{)}
+        \PYG{p}{\PYGZcb{},[])}
+
+    \PYG{k}{return}\PYG{p}{(}
+        \PYG{o}{\PYGZlt{}}\PYG{n+nx}{ul} \PYG{n+nx}{className}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}storage\PYGZhy{}list\PYGZdq{}}\PYG{o}{\PYGZgt{}}
+            \PYG{p}{\PYGZob{}}\PYG{n+nx}{components}\PYG{p}{\PYGZcb{}}
+        \PYG{o}{\PYGZlt{}}\PYG{err}{/ul\PYGZgt{}}
+    \PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

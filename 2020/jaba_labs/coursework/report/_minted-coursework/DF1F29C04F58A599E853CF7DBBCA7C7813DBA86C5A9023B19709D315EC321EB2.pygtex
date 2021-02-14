@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef CROSSSOCKET\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define CROSSSOCKET\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{// CROSSSOCKET\PYGZus{}H}
+\end{Verbatim}

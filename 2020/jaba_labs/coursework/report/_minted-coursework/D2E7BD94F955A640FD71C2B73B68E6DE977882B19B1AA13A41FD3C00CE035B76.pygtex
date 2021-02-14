@@ -1,0 +1,49 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.controllers}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.beans.factory.annotation.Autowired}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.web.bind.annotation.*}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models.Thing}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models.ThingInstance}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.services.ThingInstanceService}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.services.ThingService}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.List}\PYG{p}{;}
+
+\PYG{n+nd}{@RestController}
+\PYG{k+kd}{public} \PYG{k+kd}{class} \PYG{n+nc}{ThingInstanceController} \PYG{p}{\PYGZob{}}
+    \PYG{n+nd}{@Autowired}
+    \PYG{n}{ThingInstanceService} \PYG{n}{service}\PYG{p}{;}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/instances\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getAllThingInstance}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getAllThingInstances}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/instances\PYGZus{}in\PYGZus{}section/\PYGZob{}sectionId\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getThingInstancesInSection}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}sectionId\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{sectionId}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getThingInstancesInSection}\PYG{p}{(}\PYG{n}{sectionId}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/instances\PYGZus{}of\PYGZus{}thing/\PYGZob{}thingId\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getInstancesOfThing}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}thingId\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{thingId}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getThingInstancesInSection}\PYG{p}{(}\PYG{n}{thingId}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/instances/\PYGZob{}id\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{ThingInstance} \PYG{n+nf}{getThingInstance}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getThingInstancesById}\PYG{p}{(}\PYG{n}{id}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@DeleteMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/instances/\PYGZob{}id\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{k+kt}{void} \PYG{n+nf}{deleteThingInstance}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{delete}\PYG{p}{(}\PYG{n}{id}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@PostMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/instances\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{k+kt}{int} \PYG{n+nf}{saveThingInstance}\PYG{p}{(}\PYG{n+nd}{@RequestBody} \PYG{n}{ThingInstance} \PYG{n}{instance}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{saveOrUpdate}\PYG{p}{(}\PYG{n}{instance}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n}{instance}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

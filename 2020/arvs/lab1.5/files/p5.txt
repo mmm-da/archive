@@ -1,0 +1,119 @@
+C:\Users\Администратор\Desktop\lab1.5>cscript ./p5.vbs
+Сервер сценариев Windows (Microsoft ®) версия 5.812
+Copyright (C) Корпорация Майкрософт 1996-2006, все права защищены.
+
+domainFunctionality
+ 7
+forestFunctionality
+ 7
+domainControllerFunctionality
+ 7
+rootDomainNamingContext
+ DC=makarov,DC=vt41
+ldapServiceName
+ makarov.vt41:win-j1p54nmv903$@MAKAROV.VT41
+isGlobalCatalogReady
+ TRUE
+supportedSASLMechanisms
+ GSSAPI
+ GSS-SPNEGO
+ EXTERNAL
+ DIGEST-MD5
+supportedLDAPVersion
+ 3
+ 2
+supportedLDAPPolicies
+ MaxPoolThreads
+ MaxPercentDirSyncRequests
+ MaxDatagramRecv
+ MaxReceiveBuffer
+ InitRecvTimeout
+ MaxConnections
+ MaxConnIdleTime
+ MaxPageSize
+ MaxBatchReturnMessages
+ MaxQueryDuration
+ MaxDirSyncDuration
+ MaxTempTableSize
+ MaxResultSetSize
+ MinResultSets
+ MaxResultSetsPerConn
+ MaxNotificationPerConn
+ MaxValRange
+ MaxValRangeTransitive
+ ThreadMemoryLimit
+ SystemMemoryLimitPercent
+supportedControl
+ 1.2.840.113556.1.4.319
+ 1.2.840.113556.1.4.801
+ 1.2.840.113556.1.4.473
+ 1.2.840.113556.1.4.528
+ 1.2.840.113556.1.4.417
+ 1.2.840.113556.1.4.619
+ 1.2.840.113556.1.4.841
+ 1.2.840.113556.1.4.529
+ 1.2.840.113556.1.4.805
+ 1.2.840.113556.1.4.521
+ 1.2.840.113556.1.4.970
+ 1.2.840.113556.1.4.1338
+ 1.2.840.113556.1.4.474
+ 1.2.840.113556.1.4.1339
+ 1.2.840.113556.1.4.1340
+ 1.2.840.113556.1.4.1413
+ 2.16.840.1.113730.3.4.9
+ 2.16.840.1.113730.3.4.10
+ 1.2.840.113556.1.4.1504
+ 1.2.840.113556.1.4.1852
+ 1.2.840.113556.1.4.802
+ 1.2.840.113556.1.4.1907
+ 1.2.840.113556.1.4.1948
+ 1.2.840.113556.1.4.1974
+ 1.2.840.113556.1.4.1341
+ 1.2.840.113556.1.4.2026
+ 1.2.840.113556.1.4.2064
+ 1.2.840.113556.1.4.2065
+ 1.2.840.113556.1.4.2066
+ 1.2.840.113556.1.4.2090
+ 1.2.840.113556.1.4.2205
+ 1.2.840.113556.1.4.2204
+ 1.2.840.113556.1.4.2206
+ 1.2.840.113556.1.4.2211
+ 1.2.840.113556.1.4.2239
+ 1.2.840.113556.1.4.2255
+ 1.2.840.113556.1.4.2256
+ 1.2.840.113556.1.4.2309
+ 1.2.840.113556.1.4.2330
+ 1.2.840.113556.1.4.2354
+supportedCapabilities
+ 1.2.840.113556.1.4.800
+ 1.2.840.113556.1.4.1670
+ 1.2.840.113556.1.4.1791
+ 1.2.840.113556.1.4.1935
+ 1.2.840.113556.1.4.2080
+ 1.2.840.113556.1.4.2237
+subschemaSubentry
+ CN=Aggregate,CN=Schema,CN=Configuration,DC=makarov,DC=vt41
+serverName
+ CN=WIN-J1P54NMV903,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=makarov,DC=vt41
+schemaNamingContext
+ CN=Schema,CN=Configuration,DC=makarov,DC=vt41
+namingContexts
+ DC=makarov,DC=vt41
+ CN=Configuration,DC=makarov,DC=vt41
+ CN=Schema,CN=Configuration,DC=makarov,DC=vt41
+ DC=DomainDnsZones,DC=makarov,DC=vt41
+ DC=ForestDnsZones,DC=makarov,DC=vt41
+isSynchronized
+ TRUE
+highestCommittedUSN
+ 16437
+dsServiceName
+ CN=NTDS Settings,CN=WIN-J1P54NMV903,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=makarov,DC=vt41
+dnsHostName
+ WIN-J1P54NMV903.makarov.vt41
+defaultNamingContext
+ DC=makarov,DC=vt41
+currentTime
+ 20201012151154.0Z
+configurationNamingContext
+ CN=Configuration,DC=makarov,DC=vt41

@@ -1,0 +1,42 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+QT       \PYG{o}{+=} core gui network
+
+greaterThan(QT\PYGZus{}MAJOR\PYGZus{}VERSION, \PYG{l+m+mi}{4})\PYG{o}{:} QT \PYG{o}{+=} widgets
+
+CONFIG \PYG{o}{+=} c\PYG{o}{++}\PYG{l+m+mi}{11}
+
+\PYG{o}{\PYGZsh{}} The following define makes your compiler emit warnings \PYG{k}{if} you use
+\PYG{o}{\PYGZsh{}} any Qt feature that has been marked deprecated (the exact warnings
+\PYG{o}{\PYGZsh{}} depend on your compiler). Please consult the documentation \PYG{k}{of} the
+\PYG{o}{\PYGZsh{}} deprecated API in order to know how to port your code away from it.
+DEFINES \PYG{o}{+=} QT\PYGZus{}DEPRECATED\PYGZus{}WARNINGS
+
+\PYG{o}{\PYGZsh{}} You can also make your code fail to compile \PYG{k}{if} it uses deprecated APIs.
+\PYG{o}{\PYGZsh{}} In order to \PYG{k}{do} so, uncomment the following line.
+\PYG{o}{\PYGZsh{}} You can also select to disable deprecated APIs only up to a certain version \PYG{k}{of} Qt.
+\PYG{o}{\PYGZsh{}}DEFINES \PYG{o}{+=} QT\PYGZus{}DISABLE\PYGZus{}DEPRECATED\PYGZus{}BEFORE\PYG{o}{=}0x060000    \PYG{o}{\PYGZsh{}} disables all the APIs deprecated before Qt \PYG{l+m+mf}{6.0.0}
+
+SOURCES \PYG{o}{+=} \PYGZbs{}
+    crossSocket.cpp \PYGZbs{}
+    main.cpp \PYGZbs{}
+    mainwindow.cpp
+
+HEADERS \PYG{o}{+=} \PYGZbs{}
+    crossSocket.h \PYGZbs{}
+    cross\PYGZus{}sockets.h \PYGZbs{}
+    mainwindow.h \PYGZbs{}
+    scan\PYGZus{}functions.h
+
+FORMS \PYG{o}{+=} \PYGZbs{}
+    mainwindow.ui
+
+TRANSLATIONS \PYG{o}{+=} \PYGZbs{}
+    course\PYG{o}{\PYGZhy{}}work\PYG{o}{\PYGZhy{}}v2\PYGZus{}ru\PYGZus{}RU.ts
+
+win32\PYG{o}{:}LIBS \PYG{o}{+=} \PYG{o}{\PYGZhy{}}lws2\PYGZus{}32
+
+\PYG{o}{\PYGZsh{}} Default rules \PYG{k}{for} deployment.
+qnx\PYG{o}{:} target.path \PYG{o}{=} \PYG{o}{/}tmp\PYG{o}{/}\PYGZdl{}\PYGZdl{}\PYGZob{}TARGET\PYGZcb{}\PYG{o}{/}bin
+\PYG{k}{else}\PYG{o}{:} unix\PYG{o}{:}!android\PYG{o}{:} target.path \PYG{o}{=} \PYG{o}{/}opt\PYG{o}{/}\PYGZdl{}\PYGZdl{}\PYGZob{}TARGET\PYGZcb{}\PYG{o}{/}bin
+!isEmpty(target.path)\PYG{o}{:} INSTALLS \PYG{o}{+=} target
+\end{Verbatim}

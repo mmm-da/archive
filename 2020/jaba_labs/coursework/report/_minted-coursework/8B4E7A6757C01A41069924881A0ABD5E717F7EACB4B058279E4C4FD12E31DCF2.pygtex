@@ -1,0 +1,49 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{.}\PYG{n+nc}{navbar}\PYG{p}{\PYGZob{}}
+    \PYG{k}{display}\PYG{p}{:} \PYG{k+kc}{flex}\PYG{p}{;}
+    \PYG{k}{align\PYGZhy{}items}\PYG{p}{:} \PYG{k+kc}{center}\PYG{p}{;}
+    
+    \PYG{k}{height}\PYG{p}{:} \PYG{l+m+mi}{80}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{k}{padding\PYGZhy{}top}\PYG{p}{:} \PYG{l+m+mi}{16}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{k}{padding\PYGZhy{}bottom}\PYG{p}{:} \PYG{l+m+mi}{16}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{k}{padding\PYGZhy{}left}\PYG{p}{:} \PYG{l+m+mi}{48}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{k}{padding\PYGZhy{}right}\PYG{p}{:} \PYG{l+m+mi}{48}\PYG{k+kt}{px}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{.}\PYG{n+nc}{navbar\PYGZhy{}item}\PYG{p}{\PYGZob{}}
+    \PYG{k}{color}\PYG{p}{:} \PYG{l+m+mh}{\PYGZsh{}3B434E}\PYG{p}{;}
+    \PYG{k}{text\PYGZhy{}decoration}\PYG{p}{:} \PYG{k+kc}{none}\PYG{p}{;}
+    \PYG{k}{padding\PYGZhy{}left}\PYG{p}{:} \PYG{l+m+mi}{16}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{k}{padding\PYGZhy{}right}\PYG{p}{:} \PYG{l+m+mi}{16}\PYG{k+kt}{px}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{p}{.}\PYG{n+nc}{navbar\PYGZhy{}logo}\PYG{p}{\PYGZob{}}
+    \PYG{k}{color}\PYG{p}{:} \PYG{l+m+mh}{\PYGZsh{}EEA35D}\PYG{p}{;}
+
+    \PYG{k}{font\PYGZhy{}size}\PYG{p}{:} \PYG{l+m+mi}{56}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{k}{font\PYGZhy{}family}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}Amatic SC\PYGZsq{}}\PYG{p}{,} \PYG{k+kc}{cursive}\PYG{p}{;}
+    \PYG{k}{margin\PYGZhy{}right}\PYG{p}{:} \PYG{l+m+mi}{16}\PYG{k+kt}{px}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{@}\PYG{k}{media} \PYG{n+nt}{screen} \PYG{n+nt}{and} \PYG{o}{(}\PYG{n+nt}{max\PYGZhy{}width}\PYG{o}{:} \PYG{n+nt}{900px}\PYG{o}{)} \PYG{p}{\PYGZob{}}
+    \PYG{p}{.}\PYG{n+nc}{navbar\PYGZhy{}logo}\PYG{p}{\PYGZob{}}
+        \PYG{k}{display}\PYG{p}{:} \PYG{k+kc}{none}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{p}{.}\PYG{n+nc}{navbar}\PYG{p}{\PYGZob{}}
+        \PYG{k}{padding\PYGZhy{}left}\PYG{p}{:} \PYG{l+m+mi}{24}\PYG{k+kt}{px}\PYG{p}{;}
+        \PYG{k}{padding\PYGZhy{}right}\PYG{p}{:} \PYG{l+m+mi}{24}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{p}{.}\PYG{n+nc}{navbar\PYGZhy{}logo}\PYG{p}{:}\PYG{n+nd}{hover}\PYG{p}{\PYGZob{}}
+    \PYG{k}{color}\PYG{p}{:} \PYG{l+m+mh}{\PYGZsh{}ffc98d}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{.}\PYG{n+nc}{push\PYGZhy{}right}\PYG{p}{\PYGZob{}}
+    \PYG{k}{margin\PYGZhy{}right}\PYG{p}{:} \PYG{l+m+mi}{0}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{k}{margin\PYGZhy{}left}\PYG{p}{:} \PYG{k+kc}{auto}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

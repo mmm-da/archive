@@ -1,0 +1,60 @@
+.things-list-element{
+    display: grid;
+    grid-template-columns: 3em auto 30%;
+    grid-template-rows: 3em 3em;
+    gap: 0px 1%;
+    align-items: center;
+    grid-template-areas:
+    "icon title count"
+    "icon place reserve";
+
+    padding: 1em;
+    list-style:none;
+    border-radius: 7px;
+    transition-duration: 0.1s;
+    background-color: #eeebe3;
+}
+
+a{
+    text-decoration: none;
+}
+
+.things-list-element:hover{
+    color: #3B434E;
+    background-color: #e5e2d7;
+}
+
+.things-list-element-icon{
+    height: 3em;
+    width: 3em;
+    margin: 12px;
+    grid-area: icon;
+    justify-self: center;
+}
+
+.things-list-element-title{
+    grid-area: title;
+    font-size: 1.5em;
+    justify-self: self-start;
+}
+
+.things-list-element-place{
+    grid-area: place;
+    font-size: 1em;
+    justify-self: self-start;
+}
+
+.things-list-element-reserve{
+    grid-area: reserve;
+    font-size: 0.8em;
+    align-self: center;
+    justify-self: self-end;
+}
+
+.things-list-element-count{
+    grid-area: count;
+    color: #EEA35D;
+    font-size: 2em;
+    font-weight: 600;
+    justify-self: self-end;
+}

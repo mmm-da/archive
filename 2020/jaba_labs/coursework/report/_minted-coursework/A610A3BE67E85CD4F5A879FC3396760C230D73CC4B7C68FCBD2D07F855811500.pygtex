@@ -1,0 +1,56 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.services}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.beans.factory.annotation.Autowired}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.stereotype.Service}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models.Thing}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models.ThingInstance}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.repos.ThingInstanceRepo}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.repos.ThingRepo}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.ArrayList}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.List}\PYG{p}{;}
+
+\PYG{n+nd}{@Service}
+\PYG{k+kd}{public} \PYG{k+kd}{class} \PYG{n+nc}{ThingInstanceService} \PYG{p}{\PYGZob{}}
+    \PYG{n+nd}{@Autowired}
+    \PYG{n}{ThingInstanceRepo} \PYG{n}{repo}\PYG{p}{;}
+    \PYG{k+kd}{public} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getAllThingInstances}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+        \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n}{instances} \PYG{o}{=} \PYG{k}{new} \PYG{n}{ArrayList}\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{findAll}\PYG{p}{().}\PYG{n+na}{forEach}\PYG{p}{(}\PYG{n}{instances}\PYG{p}{::}\PYG{n}{add}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n}{instances}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getThingInstancesInSection}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{sectionId}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n}{instances} \PYG{o}{=} \PYG{k}{new} \PYG{n}{ArrayList}\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{findAll}\PYG{p}{().}\PYG{n+na}{forEach}\PYG{p}{(}\PYG{n}{instance} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{instance}\PYG{p}{.}\PYG{n+na}{getSection}\PYG{p}{().}\PYG{n+na}{getId}\PYG{p}{()} \PYG{o}{==} \PYG{n}{sectionId}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{instances}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{instance}\PYG{p}{);}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{});}
+        \PYG{k}{return} \PYG{n}{instances}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getInstancesForThing}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{thingId}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{ThingInstance}\PYG{o}{\PYGZgt{}} \PYG{n}{instances} \PYG{o}{=} \PYG{k}{new} \PYG{n}{ArrayList}\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{findAll}\PYG{p}{().}\PYG{n+na}{forEach}\PYG{p}{(}\PYG{n}{instance} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{instance}\PYG{p}{.}\PYG{n+na}{getThing}\PYG{p}{().}\PYG{n+na}{getId}\PYG{p}{()} \PYG{o}{==} \PYG{n}{thingId}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{instances}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{instance}\PYG{p}{);}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{});}
+        \PYG{k}{return} \PYG{n}{instances}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{n}{ThingInstance} \PYG{n+nf}{getThingInstancesById}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{findById}\PYG{p}{(}\PYG{n}{id}\PYG{p}{).}\PYG{n+na}{get}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{saveOrUpdate}\PYG{p}{(}\PYG{n}{ThingInstance} \PYG{n}{instance}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{instance}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{delete}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{deleteById}\PYG{p}{(}\PYG{n}{id}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\babel@toc {russian}{}
+\babel@toc {russian}{}
+\contentsline {section}{{\cyrillictext \CYRS \cyro \cyrd \cyre \cyrr \cyrzh \cyra \cyrn \cyri \cyre }}{1}{section*.1}%
+\contentsline {section}{\numberline {1}Введение}{2}{section.1}%
+\contentsline {section}{\numberline {2}Основная часть}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Теоретические сведения}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Проектирование базы данных}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Разработка серверной части приложения}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Разработка клиентской части приложения}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Проверка работоспособности}{7}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Заключение}{8}{section.3}%
+\contentsline {section}{\numberline {4}{\cyrillictext \CYRS \cyrp \cyri \cyrs \cyro \cyrk \ \cyrl \cyri \cyrt \cyre \cyrr \cyra \cyrt \cyru \cyrr \cyrery }}{9}{section.4}%
+\contentsline {section}{\numberline {5}Приложение}{10}{section.5}%

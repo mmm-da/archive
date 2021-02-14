@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.controllers}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.beans.factory.annotation.Autowired}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.web.bind.annotation.*}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models.Storage}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.services.StorageService}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.List}\PYG{p}{;}
+
+\PYG{n+nd}{@CrossOrigin}
+\PYG{n+nd}{@RestController}
+\PYG{k+kd}{public} \PYG{k+kd}{class} \PYG{n+nc}{StorageController} \PYG{p}{\PYGZob{}}
+    \PYG{n+nd}{@Autowired}
+    \PYG{n}{StorageService} \PYG{n}{service}\PYG{p}{;}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/storages\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Storage}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getAllStorages}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getAllStorages}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/storages/\PYGZob{}id\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{Storage} \PYG{n+nf}{getStorage}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getStorageById}\PYG{p}{(}\PYG{n}{id}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@DeleteMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/storages/\PYGZob{}id\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{k+kt}{void} \PYG{n+nf}{deleteStorage}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{delete}\PYG{p}{(}\PYG{n}{id}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@PostMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/storages\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{k+kt}{int} \PYG{n+nf}{saveStorage}\PYG{p}{(}\PYG{n+nd}{@RequestBody} \PYG{n}{Storage} \PYG{n}{storage}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{saveOrUpdate}\PYG{p}{(}\PYG{n}{storage}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n}{storage}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

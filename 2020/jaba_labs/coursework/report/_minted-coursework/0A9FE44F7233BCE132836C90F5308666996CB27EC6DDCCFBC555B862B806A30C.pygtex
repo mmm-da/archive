@@ -1,0 +1,42 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.controllers}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.beans.factory.annotation.Autowired}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.web.bind.annotation.*}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models.Section}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.services.SectionService}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.List}\PYG{p}{;}
+
+\PYG{n+nd}{@RestController}
+\PYG{k+kd}{public} \PYG{k+kd}{class} \PYG{n+nc}{SectionController} \PYG{p}{\PYGZob{}}
+    \PYG{n+nd}{@Autowired}
+    \PYG{n}{SectionService} \PYG{n}{service}\PYG{p}{;}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/sections\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Section}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getAllSections}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getAllSections}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/sections\PYGZus{}in\PYGZus{}storage/\PYGZob{}storageId\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Section}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getSectionsInStorage}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}storageId\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{storageId}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getSectionsInStorage}\PYG{p}{(}\PYG{n}{storageId}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@GetMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/sections/\PYGZob{}id\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{n}{Section} \PYG{n+nf}{getSection}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{getSectionById}\PYG{p}{(}\PYG{n}{id}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@DeleteMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/sections/\PYGZob{}id\PYGZcb{}\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{k+kt}{void} \PYG{n+nf}{deleteSection}\PYG{p}{(}\PYG{n+nd}{@PathVariable}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{)} \PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{delete}\PYG{p}{(}\PYG{n}{id}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{n+nd}{@PostMapping}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}/sections\PYGZdq{}}\PYG{p}{)}
+    \PYG{k+kd}{private} \PYG{k+kt}{int} \PYG{n+nf}{saveStorage}\PYG{p}{(}\PYG{n+nd}{@RequestBody} \PYG{n}{Section} \PYG{n}{section}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{service}\PYG{p}{.}\PYG{n+na}{saveOrUpdate}\PYG{p}{(}\PYG{n}{section}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n}{section}\PYG{p}{.}\PYG{n+na}{getId}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,31 @@
+.thing-page-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thing-page-body{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.thing-page-content-block-body{
+    background-color: #eeebe3;
+    margin: 0px;
+    padding: 16px;
+    border-radius: 7px;
+    border-collapse:separate;
+    border-spacing: 8px;
+}
+
+.thing-page-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.thing-table-count{
+    font-weight: 500;
+    color: #EEA35D;
+    text-align: end;
+}

@@ -1,0 +1,44 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.services}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.beans.factory.annotation.Autowired}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.stereotype.Service}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models.Section}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.repos.SectionRepo}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.ArrayList}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.List}\PYG{p}{;}
+
+\PYG{n+nd}{@Service}
+\PYG{k+kd}{public} \PYG{k+kd}{class} \PYG{n+nc}{SectionService} \PYG{p}{\PYGZob{}}
+    \PYG{n+nd}{@Autowired}
+    \PYG{n}{SectionRepo} \PYG{n}{repo}\PYG{p}{;}
+    \PYG{k+kd}{public} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Section}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getAllSections}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+        \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Section}\PYG{o}{\PYGZgt{}} \PYG{n}{sections} \PYG{o}{=} \PYG{k}{new} \PYG{n}{ArrayList}\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{findAll}\PYG{p}{().}\PYG{n+na}{forEach}\PYG{p}{(}\PYG{n}{sections}\PYG{p}{::}\PYG{n}{add}\PYG{p}{);}
+        \PYG{k}{return} \PYG{n}{sections}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Section}\PYG{o}{\PYGZgt{}} \PYG{n+nf}{getSectionsInStorage}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{storageId}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Section}\PYG{o}{\PYGZgt{}} \PYG{n}{sections} \PYG{o}{=} \PYG{k}{new} \PYG{n}{ArrayList}\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{p}{();}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{findAll}\PYG{p}{().}\PYG{n+na}{forEach}\PYG{p}{(}\PYG{n}{section} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{section}\PYG{p}{.}\PYG{n+na}{getStorage}\PYG{p}{().}\PYG{n+na}{getId}\PYG{p}{()} \PYG{o}{==} \PYG{n}{storageId}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{sections}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{section}\PYG{p}{);}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{});}
+        \PYG{k}{return} \PYG{n}{sections}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{n}{Section} \PYG{n+nf}{getSectionById}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{findById}\PYG{p}{(}\PYG{n}{id}\PYG{p}{).}\PYG{n+na}{get}\PYG{p}{();}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{saveOrUpdate}\PYG{p}{(}\PYG{n}{Section} \PYG{n}{section}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{save}\PYG{p}{(}\PYG{n}{section}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+
+    \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{delete}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+        \PYG{n}{repo}\PYG{p}{.}\PYG{n+na}{deleteById}\PYG{p}{(}\PYG{n}{id}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

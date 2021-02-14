@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.repos}\PYG{p}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{org.springframework.data.repository.CrudRepository}\PYG{p}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{ru.bstu.vt41.mds.coursework.models.Section}\PYG{p}{;}
+
+\PYG{k+kd}{public} \PYG{k+kd}{interface} \PYG{n+nc}{SectionRepo} \PYG{k+kd}{extends} \PYG{n}{CrudRepository}\PYG{o}{\PYGZlt{}}\PYG{n}{Section}\PYG{p}{,}\PYG{n}{Integer}\PYG{o}{\PYGZgt{}} \PYG{p}{\PYGZob{}\PYGZcb{}}
+\end{Verbatim}

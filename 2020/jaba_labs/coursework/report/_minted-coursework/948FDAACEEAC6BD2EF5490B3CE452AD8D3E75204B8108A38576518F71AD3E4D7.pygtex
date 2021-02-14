@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{k}{storage} \PYG{p}{(}\PYG{n}{id}\PYG{p}{,}\PYG{n}{name}\PYG{p}{)} \PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Хранилище 1\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Хранилище 2\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Хранилище 3\PYGZsq{}}\PYG{p}{);}
+
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{thing} \PYG{p}{(}\PYG{n}{id}\PYG{p}{,}\PYG{n}{name}\PYG{p}{)} \PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Штука 1\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Штука 2\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Штука 3\PYGZsq{}}\PYG{p}{);}
+
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{section} \PYG{p}{(}\PYG{n}{id}\PYG{p}{,}\PYG{n}{name}\PYG{p}{,}\PYG{n}{storage\PYGZus{}id}\PYG{p}{)} \PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Секция 1\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Секция 2\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Секция 3\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Секция 4\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);}
+
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{thing\PYGZus{}instance} \PYG{p}{(}\PYG{n}{id}\PYG{p}{,}\PYG{k}{count}\PYG{p}{,}\PYG{n}{thing\PYGZus{}id}\PYG{p}{,}\PYG{n}{section\PYGZus{}id}\PYG{p}{)} \PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{11}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{12}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{13}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{14}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{l+m+mi}{15}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{l+m+mi}{16}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{,}\PYG{l+m+mi}{17}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{9}\PYG{p}{,}\PYG{l+m+mi}{18}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{l+m+mi}{19}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{11}\PYG{p}{,}\PYG{l+m+mi}{20}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{);}
+\end{Verbatim}

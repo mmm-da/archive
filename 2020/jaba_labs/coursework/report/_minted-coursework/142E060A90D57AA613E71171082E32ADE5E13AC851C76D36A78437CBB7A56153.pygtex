@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{import} \PYG{n+nx}{React} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{Link}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZhy{}router\PYGZhy{}dom\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{l+s+s1}{\PYGZsq{}./StorageElement.css\PYGZsq{}}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}\PYG{n+nx}{Spinner}\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}../Spinner/Spinner\PYGZdq{}}\PYG{p}{;}
+
+\PYG{k+kr}{export} \PYG{k}{default} \PYG{k+kd}{function} \PYG{n+nx}{StorageElement}\PYG{p}{(}\PYG{n+nx}{props}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kr}{const} \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{props}\PYG{p}{.}\PYG{n+nx}{storageInfo}
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{data} \PYG{o}{==} \PYG{k+kc}{null}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{return} \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Spinner} \PYG{n+nx}{spinnerSize}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}small\PYGZsq{}}\PYG{o}{/\PYGZgt{}}
+    \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+        \PYG{k}{return}\PYG{p}{(}
+            \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Link} \PYG{n+nx}{to}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}/storage/\PYGZdq{}}\PYG{o}{+} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{id}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZgt{}}
+                \PYG{o}{\PYGZlt{}}\PYG{n+nx}{div} \PYG{n+nx}{className} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}storage\PYGZhy{}element\PYGZdq{}}\PYG{o}{\PYGZgt{}}
+                    \PYG{o}{\PYGZlt{}}\PYG{n+nx}{div} \PYG{n+nx}{className}\PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}storage\PYGZhy{}element\PYGZhy{}header\PYGZdq{}}\PYG{o}{\PYGZgt{}}
+                        \PYG{p}{\PYGZob{}}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{name}\PYG{p}{\PYGZcb{}}
+                    \PYG{o}{\PYGZlt{}}\PYG{err}{/div\PYGZgt{}}
+                    \PYG{o}{\PYGZlt{}}\PYG{n+nx}{div} \PYG{n+nx}{className}\PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}storage\PYGZhy{}element\PYGZhy{}section\PYGZhy{}counter\PYGZdq{}}\PYG{o}{\PYGZgt{}}
+                        \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}Количество секций: \PYGZdq{}}\PYG{o}{+} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{sections}\PYG{p}{.}\PYG{n+nx}{length}\PYG{p}{\PYGZcb{}}
+                    \PYG{o}{\PYGZlt{}}\PYG{err}{/div\PYGZgt{}}
+                \PYG{o}{\PYGZlt{}}\PYG{err}{/div\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{err}{/Link\PYGZgt{}}
+        \PYG{p}{)}
+    \PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

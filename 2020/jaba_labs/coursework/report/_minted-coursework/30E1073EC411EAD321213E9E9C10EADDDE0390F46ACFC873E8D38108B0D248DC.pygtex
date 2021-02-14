@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{.}\PYG{n+nc}{storage\PYGZhy{}list}\PYG{p}{\PYGZob{}}
+    \PYG{k}{display}\PYG{p}{:} \PYG{k+kc}{flex}\PYG{p}{;}
+    \PYG{k}{justify\PYGZhy{}content}\PYG{p}{:} \PYG{k+kc}{center}\PYG{p}{;}
+    \PYG{k}{flex\PYGZhy{}wrap}\PYG{p}{:} \PYG{k+kc}{wrap}\PYG{p}{;}
+    \PYG{k}{padding}\PYG{p}{:} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

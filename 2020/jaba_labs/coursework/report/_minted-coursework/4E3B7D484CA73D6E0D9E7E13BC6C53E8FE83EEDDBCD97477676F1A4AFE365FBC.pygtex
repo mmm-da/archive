@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{.}\PYG{n+nc}{storage\PYGZhy{}element}\PYG{p}{\PYGZob{}}
+    \PYG{k}{margin}\PYG{p}{:} \PYG{l+m+mf}{0.5}\PYG{k+kt}{em} \PYG{l+m+mi}{1}\PYG{k+kt}{em}\PYG{p}{;}
+    \PYG{k}{padding}\PYG{p}{:} \PYG{l+m+mi}{1}\PYG{k+kt}{em}\PYG{p}{;}
+    \PYG{k}{list\PYGZhy{}style}\PYG{p}{:}\PYG{k+kc}{none}\PYG{p}{;}
+    \PYG{k}{border\PYGZhy{}radius}\PYG{p}{:} \PYG{l+m+mi}{7}\PYG{k+kt}{px}\PYG{p}{;}
+    \PYG{k}{background\PYGZhy{}color}\PYG{p}{:} \PYG{l+m+mh}{\PYGZsh{}eeebe3}\PYG{p}{;}
+    \PYG{k}{transition\PYGZhy{}duration}\PYG{p}{:} \PYG{l+m+mf}{0.1}\PYG{k+kt}{s}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{.}\PYG{n+nc}{storage\PYGZhy{}element}\PYG{p}{:}\PYG{n+nd}{hover}\PYG{p}{\PYGZob{}}
+    \PYG{k}{color}\PYG{p}{:} \PYG{l+m+mh}{\PYGZsh{}3B434E}\PYG{p}{;}
+    \PYG{k}{background\PYGZhy{}color}\PYG{p}{:} \PYG{l+m+mh}{\PYGZsh{}e5e2d7}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nt}{a}\PYG{p}{\PYGZob{}}
+    \PYG{k}{text\PYGZhy{}decoration}\PYG{p}{:} \PYG{k+kc}{none}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{.}\PYG{n+nc}{storage\PYGZhy{}element\PYGZhy{}header}\PYG{p}{\PYGZob{}}
+    \PYG{k}{font\PYGZhy{}weight}\PYG{p}{:} \PYG{k+kc}{bold}\PYG{p}{;}
+    \PYG{k}{margin}\PYG{p}{:} \PYG{l+m+mi}{4}\PYG{k+kt}{px} \PYG{l+m+mi}{0}\PYG{k+kt}{px} \PYG{l+m+mi}{12}\PYG{k+kt}{px} \PYG{l+m+mi}{0}\PYG{k+kt}{px}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,23 @@
+.view{
+    flex: 1;
+    padding: 0px 25%;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px){
+    .view{
+        padding: 0px 5%;
+    }
+}
+
+.view .hidden-text{
+    font-size: 9px;
+    margin: -24px 0px;
+}
+
+.title-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}

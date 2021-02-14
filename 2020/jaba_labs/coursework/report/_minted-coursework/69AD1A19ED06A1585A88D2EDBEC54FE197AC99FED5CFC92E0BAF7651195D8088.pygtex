@@ -1,0 +1,36 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{import} \PYG{n+nx}{React} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{p}{\PYGZob{}}
+    \PYG{n+nx}{BrowserRouter}\PYG{p}{,}
+    \PYG{n+nx}{Switch}\PYG{p}{,}
+    \PYG{n+nx}{Route}\PYG{p}{,}
+    \PYG{n+nx}{Redirect}
+\PYG{p}{\PYGZcb{}} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}react\PYGZhy{}router\PYGZhy{}dom\PYGZdq{}}\PYG{p}{;}
+
+\PYG{k+kr}{import} \PYG{n+nx}{NavBar} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}./components/NavBar/NavBar\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{Footer} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}./components/Footer/Footer\PYGZdq{}}\PYG{p}{;}
+
+\PYG{k+kr}{import} \PYG{n+nx}{MainView} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}./views/MainView/MainView\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{ThingView} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}./views/ThingView/ThingView\PYGZdq{}}\PYG{p}{;}
+\PYG{k+kr}{import} \PYG{n+nx}{StoragesView} \PYG{n+nx}{from} \PYG{l+s+s2}{\PYGZdq{}./views/StoragesView/StoragesView\PYGZdq{}}\PYG{p}{;}
+
+\PYG{k+kr}{import} \PYG{l+s+s2}{\PYGZdq{}./css/App.css\PYGZdq{}}
+
+
+
+\PYG{k+kr}{export} \PYG{k}{default} \PYG{k+kd}{function} \PYG{n+nx}{App}\PYG{p}{()\PYGZob{}}
+    \PYG{k}{return}\PYG{p}{(}
+        \PYG{o}{\PYGZlt{}}\PYG{n+nx}{BrowserRouter}\PYG{o}{\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{n+nx}{div} \PYG{n+nx}{className}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}container\PYGZdq{}}\PYG{o}{\PYGZgt{}}
+                \PYG{o}{\PYGZlt{}}\PYG{n+nx}{NavBar}\PYG{o}{/\PYGZgt{}}
+                    \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Switch}\PYG{o}{\PYGZgt{}}
+                        \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Route} \PYG{n+nx}{exact} \PYG{n+nx}{path}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}/\PYGZdq{}} \PYG{n+nx}{component}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{MainView}\PYG{p}{\PYGZcb{}}\PYG{o}{/\PYGZgt{}}
+                        \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Route} \PYG{n+nx}{path}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}/thing\PYGZdq{}} \PYG{n+nx}{component}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{ThingView}\PYG{p}{\PYGZcb{}}\PYG{o}{/\PYGZgt{}}
+                        \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Route} \PYG{n+nx}{path}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}/storages\PYGZdq{}} \PYG{n+nx}{component}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{StoragesView}\PYG{p}{\PYGZcb{}}\PYG{o}{/\PYGZgt{}}
+                    \PYG{o}{\PYGZlt{}}\PYG{err}{/Switch\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{err}{/div\PYGZgt{}}
+            \PYG{o}{\PYGZlt{}}\PYG{n+nx}{Footer}\PYG{o}{/\PYGZgt{}}
+        \PYG{o}{\PYGZlt{}}\PYG{err}{/BrowserRouter\PYGZgt{}}
+    \PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
