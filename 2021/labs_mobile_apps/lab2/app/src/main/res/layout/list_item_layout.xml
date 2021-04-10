@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:colorBackground"
+    android:elevation="2dp"
+    android:layout_marginBottom="@dimen/extended_padding"
+    android:paddingBottom="@dimen/extended_padding"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/list_item_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/news_img_placeholder_text"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        />
+
+    <TextView
+        android:id="@+id/list_item_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="@dimen/extended_padding"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="@dimen/header_text_size"
+        android:textStyle="bold"
+
+        />
+
+    <TextView
+        android:id="@+id/list_item_date"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+
+        android:paddingHorizontal="@dimen/extended_padding"
+        />
+
+    <TextView
+        android:id="@+id/list_item_cut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textColor="?android:textColorPrimary"
+        android:textSize="@dimen/text_size"
+        android:paddingHorizontal="@dimen/extended_padding"
+        android:paddingVertical="@dimen/extended_padding"
+        />
+</LinearLayout>

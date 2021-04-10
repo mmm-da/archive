@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <ScrollView
+        android:id="@+id/comic_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:visibility="gone"
+        >
+    <LinearLayout
+        android:elevation="0dp"
+        android:layout_marginBottom="@dimen/extended_padding"
+        android:paddingBottom="@dimen/extended_padding"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/comic_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/extended_padding"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/comic_date"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/extended_padding"
+            />
+
+        <ImageView
+            android:id="@+id/comic_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/comic_img_placeholder_text"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            />
+
+        <TextView
+            android:id="@+id/comic_transcript"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/text_size"
+            android:paddingHorizontal="@dimen/extended_padding"
+            android:paddingVertical="@dimen/extended_padding"
+            />
+
+        <TextView
+            android:id="@+id/comic_alt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/text_size"
+            android:paddingHorizontal="@dimen/extended_padding"
+            android:paddingVertical="@dimen/extended_padding"
+            />
+    </LinearLayout>
+</ScrollView>
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:indeterminate="true"
+        android:id="@+id/comic_spinner"
+        android:layout_width="@dimen/spinner_size"
+        android:layout_height="@dimen/spinner_size"
+        app:indicatorSize="@dimen/spinner_size"
+        app:trackThickness="@dimen/spinner_width"
+        android:layout_gravity="center"/>
+</FrameLayout>

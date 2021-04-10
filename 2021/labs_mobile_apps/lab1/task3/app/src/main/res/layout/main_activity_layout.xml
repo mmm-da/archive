@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:elevation="2dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imageLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/list_element_status_text_view1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/img1" />
+
+                <TextView
+                    android:id="@+id/message_notify_text_view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/purple_500"
+                    android:paddingHorizontal="4dp"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView1"
+                    app:layout_constraintTop_toTopOf="@+id/imageView1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/list_element_count_text_view1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/list_element_count_info_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/list_element_title_text_view1"/>
+
+            <TextView
+                android:id="@+id/list_element_count_info_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Участников:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/list_element_count_text_view1"
+                app:layout_constraintStart_toEndOf="@+id/list_element_status_text_view1"
+                app:layout_constraintTop_toBottomOf="@+id/list_element_title_text_view1"
+                 />
+
+            <TextView
+                android:id="@+id/list_element_status_text_view1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Открытое"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/list_element_count_info_text_view"
+                app:layout_constraintStart_toEndOf="@+id/imageLayout1"
+                app:layout_constraintTop_toBottomOf="@+id/list_element_title_text_view1"/>
+
+            <TextView
+                android:id="@+id/list_element_title_text_view1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="LKJAS:LKFJ:ALKSFJ:JJJJJJJJJJJJJJJJJJJJJ JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ JJJJJJJJJJJJHKHKHK"
+                app:layout_constraintBottom_toTopOf="@+id/list_element_count_info_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageLayout1"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</android.widget.ScrollView>

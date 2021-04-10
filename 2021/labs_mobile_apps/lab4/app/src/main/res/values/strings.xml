@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">lab4</string>
+    <string name="comic_img_placeholder_text">Тут комикс</string>
+</resources>
